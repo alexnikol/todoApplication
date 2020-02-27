@@ -1,0 +1,23 @@
+//
+//  Localizable.swift
+//  TodoViperApp
+//
+//  Created by Alexander Nikolaychuk on 27.02.2020.
+//  Copyright © 2020 AlexAlmostEngineer. All rights reserved.
+//
+
+import Foundation
+
+protocol Localizable {
+    var localized: String { get }
+}
+
+enum Text: String, Localizable {
+    
+    case testString
+    
+    var localized: String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
+    
+}

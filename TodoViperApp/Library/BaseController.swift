@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
+//  BaseController.swift
 //  TodoViperApp
 //
-//  Created by Александр Николайчук on 27.02.2020.
+//  Created by Alexander Nikolaychuk on 27.02.2020.
 //  Copyright © 2020 AlexAlmostEngineer. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.red
     }
     
 }
