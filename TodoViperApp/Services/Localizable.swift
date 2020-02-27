@@ -18,6 +18,7 @@ enum Text: String, Localizable {
     case userName
     case password
     case login
+    case signUp
     case go
     case toSignUpFlow
     case userNameInvalid

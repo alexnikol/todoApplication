@@ -20,9 +20,9 @@ class LoginRouter: LoginRouterProtocol {
         guard let viewController = view as? UIViewController else {
             return
         }
-        let controller = UIViewController()
-        controller.view.backgroundColor = Colors.blue
-        viewController.navigationController?.pushViewController(controller, animated: true)
+        let signUpController = SignUpRouter.createSignUpRouterModule()
+        viewController.navigationController?.pushViewController(signUpController,
+                                                                animated: true)
     }
     
     static func createLoginRouterModule() -> UIViewController {

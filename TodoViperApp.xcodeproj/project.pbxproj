@@ -35,11 +35,21 @@
 		8D94AFC124080F28002D8D56 /* AuthEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AFC024080F28002D8D56 /* AuthEndPoint.swift */; };
 		8D94AFC62408139E002D8D56 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AFC52408139E002D8D56 /* Configuration.swift */; };
 		8D94AFC824081B9C002D8D56 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AFC724081B9C002D8D56 /* Validator.swift */; };
+		8DC395DA240845DE00FFBFAC /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18E68924083BB5005C75B8 /* SignUpRouter.swift */; };
+		8DC395DB240845E100FFBFAC /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18E68624083BA7005C75B8 /* SignUpInteractor.swift */; };
+		8DC395DC240845E800FFBFAC /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18E68724083BAC005C75B8 /* SignUpPresenter.swift */; };
+		8DC395DD240845EA00FFBFAC /* SignUpProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18E68824083BB1005C75B8 /* SignUpProtocols.swift */; };
+		8DC395DE240845EF00FFBFAC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18E68A24083BB9005C75B8 /* SignUpViewController.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoViperApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D18E68624083BA7005C75B8 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		8D18E68724083BAC005C75B8 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		8D18E68824083BB1005C75B8 /* SignUpProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProtocols.swift; sourceTree = "<group>"; };
+		8D18E68924083BB5005C75B8 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		8D18E68A24083BB9005C75B8 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8D94AF482407A5B0002D8D56 /* TodoViperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoViperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D94AF4B2407A5B0002D8D56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D94AF4F2407A5B0002D8D56 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
@@ -96,6 +106,58 @@
 				DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8D18E67A24083B80005C75B8 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68424083BA0005C75B8 /* Interactor */,
+				8D18E68524083BA0005C75B8 /* Presenter */,
+				8D18E68324083BA0005C75B8 /* Protocols */,
+				8D18E68224083BA0005C75B8 /* Router */,
+				8D18E68124083BA0005C75B8 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8D18E68124083BA0005C75B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68A24083BB9005C75B8 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D18E68224083BA0005C75B8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68924083BB5005C75B8 /* SignUpRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8D18E68324083BA0005C75B8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68824083BB1005C75B8 /* SignUpProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8D18E68424083BA0005C75B8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68624083BA7005C75B8 /* SignUpInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8D18E68524083BA0005C75B8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8D18E68724083BAC005C75B8 /* SignUpPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		8D94AF3F2407A5B0002D8D56 = {
@@ -159,6 +221,7 @@
 		8D94AF652407B608002D8D56 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				8D18E67A24083B80005C75B8 /* SignUp */,
 				8D94AF822407C6A9002D8D56 /* Login */,
 			);
 			path = UserStories;
@@ -455,18 +518,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC395DB240845E100FFBFAC /* SignUpInteractor.swift in Sources */,
 				8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */,
 				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
 				8D94AFC124080F28002D8D56 /* AuthEndPoint.swift in Sources */,
 				8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */,
 				8D94AFBA24080D8F002D8D56 /* EndPointType.swift in Sources */,
+				8DC395DA240845DE00FFBFAC /* SignUpRouter.swift in Sources */,
+				8DC395DD240845EA00FFBFAC /* SignUpProtocols.swift in Sources */,
 				8D94AFA12407F6B3002D8D56 /* LoginInteractor.swift in Sources */,
 				8D94AF992407E2B9002D8D56 /* TDButton.swift in Sources */,
+				8DC395DC240845E800FFBFAC /* SignUpPresenter.swift in Sources */,
 				8D94AFB824080D67002D8D56 /* NetworkResponse.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
 				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
 				8D94AF502407A5B0002D8D56 /* BaseController.swift in Sources */,
 				8D94AFB224080458002D8D56 /* String+Extension.swift in Sources */,
+				8DC395DE240845EF00FFBFAC /* SignUpViewController.swift in Sources */,
 				8D94AF9F2407F58B002D8D56 /* LoginRouter.swift in Sources */,
 				8D94AFB624080D04002D8D56 /* NetworkManager.swift in Sources */,
 				8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */,
