@@ -1,5 +1,5 @@
 //
-//  AuthResponse.swift
+//  Result.swift
 //  TodoViperApp
 //
 //  Created by Alexander Nikolaychuk on 27.02.2020.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct AuthResponse: Decodable {
-    let token: String
+enum Result<String> {
+    case success
+    case failure(String)
 }

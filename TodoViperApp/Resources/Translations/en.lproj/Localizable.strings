@@ -15,3 +15,4 @@
 "userNameInvalid" = "Username is invalid";
 "passwordInvalid" = "Password is invalid";
 "smthWentWrong" = "Something went wrong!";
+"invalidEmail" = "Email is invalid";

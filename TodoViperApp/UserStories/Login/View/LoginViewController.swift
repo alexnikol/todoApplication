@@ -12,6 +12,7 @@ import SnapKit
 final class LoginViewController: BaseController {
     
     private let contentView = UIView()
+    private let alert = UILabel()
     private var loginField: TDField!
     private var passwordField: TDField!
     var presenter: LoginPresenterProtocol?
@@ -25,6 +26,8 @@ final class LoginViewController: BaseController {
         super.viewDidLoad()
         setupView()
         navigationItem.title = Text.login.localized
+        loginField.text = "sample@site.com"
+        passwordField.text = "0123456"
     }
     
     @objc
@@ -34,6 +37,7 @@ final class LoginViewController: BaseController {
     
     @objc
     private func loginProccess() {
+        showLoader()
         presenter?.loginWith(userName: loginField.text ?? "",
                              password: passwordField.text ?? "")
     }
@@ -42,10 +46,12 @@ final class LoginViewController: BaseController {
     private func editingDidBegin() {
         loginField.setToValid()
         passwordField.setToValid()
+        alert.text = ""
     }
     
     private func setupView() {
         
+        alert.textColor = Colors.dangerColor
         let form = getLoginForm()
         let link = UIButton(type: .system)
         link.setTitle(Text.toSignUpFlow.localized, for: .normal)
@@ -57,12 +63,20 @@ final class LoginViewController: BaseController {
         let loginProcess = UITapGestureRecognizer(target: self,
                                                   action: #selector(self.loginProccess))
         loginButton.addGestureRecognizer(loginProcess)
+        self.view.addSubview(alert)
         self.view.addSubview(form)
         self.view.addSubview(link)
         self.view.addSubview(loginButton)
         
+        alert.snp.makeConstraints { (make) in
+            make.topMargin.equalTo(view.snp.topMargin).offset(20.0)
+            make.leading.equalTo(view.snp.leading).offset(40.0)
+            make.trailing.equalTo(view.snp.trailing).offset(-40.0)
+            make.height.equalTo(20.0)
+        }
+        
         form.snp.makeConstraints { (make) in
-            make.topMargin.equalTo(view.snp.topMargin).offset(40.0)
+            make.topMargin.equalTo(alert.snp.bottom).offset(20.0)
             make.leading.equalTo(view.snp.leading).offset(40.0)
             make.trailing.equalTo(view.snp.trailing).offset(-40.0)
             make.height.equalTo(100.0)
@@ -106,7 +120,8 @@ final class LoginViewController: BaseController {
 extension LoginViewController: LoginViewProtocol {
     
     func showAlert(with message: String) {
-        print("showAlert \(message)")
+        hideLoader()
+        alert.text = message
     }
     
     func invalidateUserField() {

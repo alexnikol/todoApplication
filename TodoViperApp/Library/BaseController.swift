@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class BaseController: UIViewController {
-
+    
+    func showLoader() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+    }
+    
+    func hideLoader() {
+        MBProgressHUD.hide(for: self.view, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
     }
-    
+        
 }

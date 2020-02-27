@@ -28,7 +28,7 @@ final class AuthManager {
     }
     
     func saveCredentials(_ credentials: AuthResponse) -> Bool {
-        let isTokenSet = A0SimpleKeychain().setString(credentials.accessToken,
+        let isTokenSet = A0SimpleKeychain().setString(credentials.token,
                                                       forKey: AuthKeys.token.rawValue)
         return isTokenSet
     }

@@ -23,6 +23,7 @@ enum Text: String, Localizable {
     case userNameInvalid
     case passwordInvalid
     case smthWentWrong
+    case invalidEmail
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

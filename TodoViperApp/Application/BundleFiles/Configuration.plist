@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>baseURL</key>
-	<string>https://testapi.doitserver.in.ua/api</string>
+	<string>https://testapi.doitserver.in.ua/api/</string>
 </dict>
 </plist>

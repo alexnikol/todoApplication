@@ -10,12 +10,19 @@ import UIKit
 
 class LoginRouter: LoginRouterProtocol {
     
+    func navigateToMainApp() {
+        DispatchQueue.main.async {
+            AppRouter.runMainAppFlow()
+        }
+    }
+    
     func navigateToSignUpViewController(from view: LoginViewProtocol) {
         guard let viewController = view as? UIViewController else {
             return
         }
-        viewController.navigationController?.pushViewController(ProcessViewController(),
-                                                                animated: true)
+        let controller = UIViewController()
+        controller.view.backgroundColor = Colors.blue
+        viewController.navigationController?.pushViewController(controller, animated: true)
     }
     
     static func createLoginRouterModule() -> UIViewController {

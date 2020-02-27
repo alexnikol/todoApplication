@@ -40,11 +40,13 @@ protocol LoginInteractorInputProtocol: class {
 protocol LoginInteractorOutputProtocol: class {
     
     // INTERACTOR -> PRESENTER
-    
+    func loginProccessSuccess()
+    func loginProccessFail(_ error: String)
 }
 
 protocol LoginRouterProtocol: class {
 
     // PRESENTER -> ROUTER
     func navigateToSignUpViewController(from view: LoginViewProtocol)
+    func navigateToMainApp()
 }

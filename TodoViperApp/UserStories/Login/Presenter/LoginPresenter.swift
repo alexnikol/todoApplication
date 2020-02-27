@@ -38,6 +38,9 @@ class LoginPresenter: LoginPresenterProtocol {
         if !isUserValid {
             view?.invalidateUserField()
             result.error = Text.userNameInvalid.localized
+        } else if !Validator.isValidEmail(userName) {
+            view?.invalidateUserField()
+            result.error = Text.invalidEmail.localized
         }
         if !isPasswordValid {
             view?.invalidatePasswordField()
@@ -45,12 +48,20 @@ class LoginPresenter: LoginPresenterProtocol {
                 result.error = Text.passwordInvalid.localized
             }
         }
-        result.isValid = isUserValid && isPasswordValid
+        result.isValid = isUserValid && Validator.isValidEmail(userName) && isPasswordValid
         return result
     }
     
 }
 
 extension LoginPresenter: LoginInteractorOutputProtocol {
+    
+    func loginProccessSuccess() {
+        router?.navigateToMainApp()
+    }
+    
+    func loginProccessFail(_ error: String) {
+        view?.showAlert(with: error)
+    }
     
 }
