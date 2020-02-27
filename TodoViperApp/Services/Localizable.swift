@@ -20,6 +20,9 @@ enum Text: String, Localizable {
     case login
     case go
     case toSignUpFlow
+    case userNameInvalid
+    case passwordInvalid
+    case smthWentWrong
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

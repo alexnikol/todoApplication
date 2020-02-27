@@ -24,6 +24,9 @@
 		8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF942407DAB3002D8D56 /* AuthResponse.swift */; };
 		8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */; };
 		8D94AF992407E2B9002D8D56 /* TDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF982407E2B9002D8D56 /* TDButton.swift */; };
+		8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF9A2407EFE1002D8D56 /* LoginPresenter.swift */; };
+		8D94AF9F2407F58B002D8D56 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF9E2407F58B002D8D56 /* LoginRouter.swift */; };
+		8D94AFA12407F6B3002D8D56 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AFA02407F6B3002D8D56 /* LoginInteractor.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,9 @@
 		8D94AF942407DAB3002D8D56 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		8D94AF982407E2B9002D8D56 /* TDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDButton.swift; sourceTree = "<group>"; };
+		8D94AF9A2407EFE1002D8D56 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		8D94AF9E2407F58B002D8D56 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		8D94AFA02407F6B3002D8D56 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +210,7 @@
 		8D94AF832407C6C1002D8D56 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AFA02407F6B3002D8D56 /* LoginInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 		8D94AF842407C6C8002D8D56 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF9A2407EFE1002D8D56 /* LoginPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 		8D94AF862407C6D6002D8D56 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF9E2407F58B002D8D56 /* LoginRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -408,11 +417,14 @@
 			files = (
 				8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */,
 				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
+				8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */,
 				8D94AF6F2407BFA3002D8D56 /* ProcessViewController.swift in Sources */,
+				8D94AFA12407F6B3002D8D56 /* LoginInteractor.swift in Sources */,
 				8D94AF992407E2B9002D8D56 /* TDButton.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
 				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
 				8D94AF502407A5B0002D8D56 /* BaseController.swift in Sources */,
+				8D94AF9F2407F58B002D8D56 /* LoginRouter.swift in Sources */,
 				8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */,
 				8D94AF4C2407A5B0002D8D56 /* AppDelegate.swift in Sources */,
 				8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */,

@@ -11,9 +11,10 @@ import SnapKit
 
 final class LoginViewController: BaseController {
     
-    let contentView = UIView()
-    var loginField: TDField!
-    var passwordField: TDField!
+    private let contentView = UIView()
+    private var loginField: TDField!
+    private var passwordField: TDField!
+    var presenter: LoginPresenterProtocol?
     
     override func loadView() {
         contentView.backgroundColor = Colors.backgroundColor
@@ -27,31 +28,34 @@ final class LoginViewController: BaseController {
     }
     
     @objc
-    func toSignUpProcess() {}
+    private func toSignUpProcess() {
+        presenter?.navigateToSignUpViewController()
+    }
     
     @objc
-    func loginProccess() {}
+    private func loginProccess() {
+        presenter?.loginWith(userName: loginField.text ?? "",
+                             password: passwordField.text ?? "")
+    }
+    
+    @objc
+    private func editingDidBegin() {
+        loginField.setToValid()
+        passwordField.setToValid()
+    }
     
     private func setupView() {
-        loginField = TDField()
-        loginField.placeholder = Text.userName.localized
-        passwordField = TDField()
-        passwordField.placeholder = Text.password.localized
+        
+        let form = getLoginForm()
         let link = UIButton(type: .system)
         link.setTitle(Text.toSignUpFlow.localized, for: .normal)
         let toSignUpProcess = UITapGestureRecognizer(target: self,
                                                      action: #selector(self.toSignUpProcess))
         link.addGestureRecognizer(toSignUpProcess)
-        let form = UIStackView(arrangedSubviews: [loginField, passwordField])
-        form.translatesAutoresizingMaskIntoConstraints = false
-        form.axis = .vertical
-        form.distribution = .fillEqually
-        form.alignment = .fill
-        form.spacing = 20.0
         let loginButton = TDButton(type: .system)
         loginButton.setTitle(Text.go.localized, for: .normal)
         let loginProcess = UITapGestureRecognizer(target: self,
-                                                  action: #selector(self.toSignUpProcess))
+                                                  action: #selector(self.loginProccess))
         loginButton.addGestureRecognizer(loginProcess)
         self.view.addSubview(form)
         self.view.addSubview(link)
@@ -79,6 +83,38 @@ final class LoginViewController: BaseController {
             make.bottomMargin.equalTo(-30.0)
         }
         
+    }
+    
+    private func getLoginForm() -> UIView {
+        loginField = TDField()
+        loginField.placeholder = Text.userName.localized
+        loginField.addTarget(self, action: #selector(editingDidBegin), for: .editingDidBegin)
+        passwordField = TDField()
+        passwordField.placeholder = Text.password.localized
+        passwordField.addTarget(self, action: #selector(editingDidBegin), for: .editingDidBegin)
+        let form = UIStackView(arrangedSubviews: [loginField, passwordField])
+        form.translatesAutoresizingMaskIntoConstraints = false
+        form.axis = .vertical
+        form.distribution = .fillEqually
+        form.alignment = .fill
+        form.spacing = 20.0
+        return form
+    }
+    
+}
+
+extension LoginViewController: LoginViewProtocol {
+    
+    func showAlert(with message: String) {
+        print("showAlert \(message)")
+    }
+    
+    func invalidateUserField() {
+        loginField.setToInvalid()
+    }
+    
+    func invalidatePasswordField() {
+        passwordField.setToInvalid()
     }
     
 }

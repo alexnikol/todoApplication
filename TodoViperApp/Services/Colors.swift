@@ -14,7 +14,7 @@ final class Colors {
     
     static let darkColor = UIColor.darkGray
     
-    static let dangerColor = UIColor.red
+    static let dangerColor = UIColor.systemRed
     
     static let light = UIColor.white
     

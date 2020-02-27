@@ -12,3 +12,6 @@
 "login" = "Login";
 "go" = "Go!";
 "toSignUpFlow" = "to Sign Up";
+"userNameInvalid" = "Username is invalid";
+"passwordInvalid" = "Password is invalid";
+"smthWentWrong" = "Something went wrong!";

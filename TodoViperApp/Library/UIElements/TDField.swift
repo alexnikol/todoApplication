@@ -26,11 +26,11 @@ final class TDField: UITextField, Validable {
     }
     
     func setToValid() {
-        self.layer.borderColor = Colors.dangerColor.cgColor
+        self.layer.borderColor = Colors.darkColor.cgColor
     }
     
     func setToInvalid() {
-        self.layer.borderColor = Colors.darkColor.cgColor
+        self.layer.borderColor = Colors.dangerColor.cgColor
     }
     
     private func setup() {

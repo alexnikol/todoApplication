@@ -17,8 +17,8 @@ final class AppRouter {
         if AuthManager.shared.isAuthorized {
             window?.rootViewController = LoginViewController()
         } else {
-            window?.rootViewController = UINavigationController(rootViewController:
-                LoginViewController())
+            let loginController = LoginRouter.createLoginRouterModule()
+            window?.rootViewController = UINavigationController(rootViewController: loginController)
         }
         
     }
