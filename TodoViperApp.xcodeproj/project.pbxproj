@@ -17,6 +17,13 @@
 		8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF702407BFD5002D8D56 /* Colors.swift */; };
 		8D94AF792407C36A002D8D56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D94AF7B2407C36A002D8D56 /* Localizable.strings */; };
 		8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF7E2407C3DC002D8D56 /* Localizable.swift */; };
+		8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF882407C725002D8D56 /* LoginProtocols.swift */; };
+		8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF8A2407D546002D8D56 /* LoginViewController.swift */; };
+		8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF8D2407D67D002D8D56 /* TDField.swift */; };
+		8D94AF902407D961002D8D56 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF8F2407D961002D8D56 /* AuthManager.swift */; };
+		8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF942407DAB3002D8D56 /* AuthResponse.swift */; };
+		8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */; };
+		8D94AF992407E2B9002D8D56 /* TDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D94AF982407E2B9002D8D56 /* TDButton.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +44,13 @@
 		8D94AF7A2407C36A002D8D56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8D94AF7C2407C36F002D8D56 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8D94AF7E2407C3DC002D8D56 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		8D94AF882407C725002D8D56 /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
+		8D94AF8A2407D546002D8D56 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8D94AF8D2407D67D002D8D56 /* TDField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDField.swift; sourceTree = "<group>"; };
+		8D94AF8F2407D961002D8D56 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		8D94AF942407DAB3002D8D56 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		8D94AF982407E2B9002D8D56 /* TDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDButton.swift; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +121,7 @@
 		8D94AF632407B5E0002D8D56 /* Extenstions */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -121,6 +136,7 @@
 		8D94AF652407B608002D8D56 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF822407C6A9002D8D56 /* SignUp */,
 			);
 			path = UserStories;
 			sourceTree = "<group>";
@@ -128,9 +144,11 @@
 		8D94AF662407B61C002D8D56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF922407DA8A002D8D56 /* Networking */,
 				8D94AF6C2407BF1C002D8D56 /* AppRouter.swift */,
 				8D94AF702407BFD5002D8D56 /* Colors.swift */,
 				8D94AF7E2407C3DC002D8D56 /* Localizable.swift */,
+				8D94AF8F2407D961002D8D56 /* AuthManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -155,6 +173,7 @@
 		8D94AF6B2407BB36002D8D56 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8D94AF8C2407D661002D8D56 /* UIElements */,
 				8D94AF6E2407BFA3002D8D56 /* ProcessViewController.swift */,
 				8D94AF562407A5B2002D8D56 /* LaunchScreen.storyboard */,
 				8D94AF4F2407A5B0002D8D56 /* BaseController.swift */,
@@ -168,6 +187,80 @@
 				8D94AF7B2407C36A002D8D56 /* Localizable.strings */,
 			);
 			path = Translations;
+			sourceTree = "<group>";
+		};
+		8D94AF822407C6A9002D8D56 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF832407C6C1002D8D56 /* Interactor */,
+				8D94AF842407C6C8002D8D56 /* Presenter */,
+				8D94AF852407C6CF002D8D56 /* Protocols */,
+				8D94AF862407C6D6002D8D56 /* Router */,
+				8D94AF872407C6DC002D8D56 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8D94AF832407C6C1002D8D56 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8D94AF842407C6C8002D8D56 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8D94AF852407C6CF002D8D56 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF882407C725002D8D56 /* LoginProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8D94AF862407C6D6002D8D56 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8D94AF872407C6DC002D8D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF8A2407D546002D8D56 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D94AF8C2407D661002D8D56 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF8D2407D67D002D8D56 /* TDField.swift */,
+				8D94AF982407E2B9002D8D56 /* TDButton.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
+		8D94AF922407DA8A002D8D56 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF932407DA99002D8D56 /* Responses */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8D94AF932407DA99002D8D56 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8D94AF942407DAB3002D8D56 /* AuthResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		C08E65B817772E886775E463 /* Frameworks */ = {
@@ -314,11 +407,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */,
+				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
 				8D94AF6F2407BFA3002D8D56 /* ProcessViewController.swift in Sources */,
+				8D94AF992407E2B9002D8D56 /* TDButton.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
+				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
 				8D94AF502407A5B0002D8D56 /* BaseController.swift in Sources */,
+				8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */,
 				8D94AF4C2407A5B0002D8D56 /* AppDelegate.swift in Sources */,
+				8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */,
+				8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */,
 				8D94AF6D2407BF1C002D8D56 /* AppRouter.swift in Sources */,
+				8D94AF902407D961002D8D56 /* AuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

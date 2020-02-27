@@ -11,9 +11,16 @@ import UIKit
 final class AppRouter {
     
     static func runFlow() {
+        
         let window = UIApplication.shared.keyWindow
-        let proccessViewController = ProcessViewController()
-        window?.rootViewController = proccessViewController
+        
+        if AuthManager.shared.isAuthorized {
+            window?.rootViewController = LoginViewController()
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController:
+                LoginViewController())
+        }
+        
     }
     
 }

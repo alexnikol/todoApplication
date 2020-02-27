@@ -6,4 +6,9 @@
   Copyright © 2020 AlexAlmostEngineer. All rights reserved.
 */
 
-"testString" = "Test EN";
+"done" = "Done";
+"userName" = "Username";
+"password" = "Password";
+"login" = "Login";
+"go" = "Go!";
+"toSignUpFlow" = "to Sign Up";

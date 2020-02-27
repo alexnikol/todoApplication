@@ -16,7 +16,7 @@ class ProcessViewController: UIViewController {
         setupView()
         let spinningActivity = MBProgressHUD.showAdded(to: self.view, animated: true)
         spinningActivity.label.text = "Loading"
-        print(Text.testString.localized)
+        print(Text.done.localized)
     }
     
     private func setupView() {

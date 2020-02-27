@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.9.1)
   - MBProgressHUD (1.2.0)
+  - SimpleKeychain (0.9.0)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
   - MBProgressHUD (~> 1.2.0)
+  - SimpleKeychain (~> 0.9)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - MBProgressHUD
+    - SimpleKeychain
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  SimpleKeychain: 3be49072fd2d82de8fa83d847ef1e548622f8fc5
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 40c9804b95451783256f126e1e129a3cbd1d0ff6
+PODFILE CHECKSUM: ee03ed7fed3f7acd4aeb1e94accf093d4b0aae85
 
 COCOAPODS: 1.8.4

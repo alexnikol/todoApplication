@@ -14,7 +14,12 @@ protocol Localizable {
 
 enum Text: String, Localizable {
     
-    case testString
+    case done
+    case userName
+    case password
+    case login
+    case go
+    case toSignUpFlow
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

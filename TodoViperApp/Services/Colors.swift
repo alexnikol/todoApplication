@@ -10,6 +10,14 @@ import UIKit
 
 final class Colors {
     
-    static var backgroundColor = UIColor.lightGray
+    static let backgroundColor = UIColor.lightGray
+    
+    static let darkColor = UIColor.darkGray
+    
+    static let dangerColor = UIColor.red
+    
+    static let light = UIColor.white
+    
+    static let blue = UIColor.systemBlue
     
 }
