@@ -26,6 +26,7 @@ enum Text: String, Localizable {
     case smthWentWrong
     case invalidEmail
     case todos
+    case deadline
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

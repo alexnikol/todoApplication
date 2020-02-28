@@ -13,7 +13,7 @@ protocol TodoListViewProtocol: class {
     var presenter: TodoListPresenterProtocol? { get set }
     
     // PRESENTER -> VIEW
-    func showTodos(_ todos: [Todo])
+    func refreshList()
     func showErrorMessage(_ message: String)
 }
 
@@ -22,6 +22,7 @@ protocol TodoListPresenterProtocol: class {
     var view: TodoListViewProtocol? { get set }
     var interactor: TodoListInteractorInputProtocol? { get set }
     var router: TodoListRouterProtocol? { get set }
+    var todos: [Todo] { get }
     
     // VIEW -> PRESENTER
     func refreshList()

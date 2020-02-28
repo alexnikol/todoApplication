@@ -9,7 +9,8 @@
 import UIKit
 
 class TodoListPresenter: TodoListPresenterProtocol {
-
+    
+    var todos: [Todo] = []
     weak var view: TodoListViewProtocol?
     var interactor: TodoListInteractorInputProtocol?
     var router: TodoListRouterProtocol?
@@ -43,7 +44,8 @@ extension TodoListPresenter: TodoListInteractorOutputProtocol {
         if let error = error {
             view?.showErrorMessage(error)
         } else {
-            view?.showTodos(todos)
+            self.todos = todos
+            view?.refreshList()
         }
  
     }
