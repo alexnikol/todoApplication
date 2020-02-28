@@ -12,7 +12,7 @@ final class AppRouter {
     
     static func runOnLoadFlow() {
         if AuthManager.shared.isAuthorized {
-            AppRouter.runAuthFlow()
+            AppRouter.runMainAppFlow()
         } else {
             AppRouter.runAuthFlow()
         }
@@ -20,8 +20,7 @@ final class AppRouter {
     
     static func runMainAppFlow() {
         let window = UIApplication.shared.keyWindow
-        let controller = UIViewController()
-        controller.view.backgroundColor = Colors.dangerColor
+        let controller = TodoListRouter.createTodoListRouterModule()
         window?.rootViewController = UINavigationController(rootViewController: controller)
         runFadeAnimationForWindow(window)
     }

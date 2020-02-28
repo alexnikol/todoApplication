@@ -11,7 +11,7 @@ import UIKit
 final class Colors {
     
     static let backgroundColor = UIColor.lightGray
-    
+
     static let darkColor = UIColor.darkGray
     
     static let dangerColor = UIColor.systemRed

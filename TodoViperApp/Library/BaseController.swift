@@ -9,7 +9,12 @@
 import UIKit
 import MBProgressHUD
 
-class BaseController: UIViewController {
+protocol Loaderable: UIViewController {
+    func showLoader()
+    func hideLoader()
+}
+
+extension Loaderable {
     
     func showLoader() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -19,6 +24,10 @@ class BaseController: UIViewController {
         MBProgressHUD.hide(for: self.view, animated: true)
     }
     
+}
+
+class BaseController: UIViewController, Loaderable {
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
