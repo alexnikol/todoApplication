@@ -10,10 +10,16 @@ import UIKit
 
 class TodoListRouter: TodoListRouterProtocol {
     
-    func navigateToAuthApp() {
-        DispatchQueue.main.async {
-            AppRouter.runAuthFlow()
-        }
+    func navigateToTodoItemCreateScreen(from view: UIViewController?) {
+        let createController = TodoItemRouter.createTodoItemRouterModule(forTodo: nil)
+        createController.hidesBottomBarWhenPushed = true
+        view?.navigationController?.pushViewController(createController, animated: true)
+    }
+    
+    func navigateToTodoItemEditScreen(from view: UIViewController?, withTodo: Todo) {
+        let editController = TodoItemRouter.createTodoItemRouterModule(forTodo: withTodo)
+        editController.hidesBottomBarWhenPushed = true
+        view?.navigationController?.pushViewController(editController, animated: true)
     }
     
     static func createTodoListRouterModule() -> UIViewController {
@@ -22,7 +28,7 @@ class TodoListRouter: TodoListRouterProtocol {
         let presenter: TodoListPresenterProtocol & TodoListInteractorOutputProtocol = TodoListPresenter()
         TodoListController.presenter = presenter
         presenter.view = TodoListController
-        let interactor: TodoListInteractorInputProtocol & TodosWorkerOutputProtocol = TodoLisInteractor()
+        let interactor: TodoListInteractorInputProtocol & TodosWorkerOutputProtocol = TodoListInteractor()
         interactor.presenter = presenter
         todosWorker.interactor = interactor
         interactor.worker = todosWorker

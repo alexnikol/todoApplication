@@ -23,9 +23,25 @@ class TodosWorker: TodosWorkerInputProtocol {
                              completion: client.fetchedTodos)
     }
     
-    func createTodo(_ todo: Todo) {}
+    func createTodo(_ todo: Todo) {
+        guard let client = interactor else {
+            return
+        }
+        let endPoint = TodosEndpoint.createTodo(todo)
+        networkManager.fetch(endPoint: endPoint,
+                             responseType: Todo.self,
+                             completion: client.createdTodo)
+    }
     
-    func updateTodo(_ todo: Todo) {}
+    func updateTodo(_ todo: Todo) {
+        guard let client = interactor else {
+            return
+        }
+        let endPoint = TodosEndpoint.updateTodo(todo)
+        networkManager.fetch(endPoint: endPoint,
+                             responseType: Todo.self,
+                             completion: client.updatedTodo)
+    }
     
     func deleteTodo(byId: Int) {
         guard let client = interactor else {
@@ -39,7 +55,6 @@ class TodosWorker: TodosWorkerInputProtocol {
                                 } else {
                                     client.deletedTodo(nil, error: error)
                                 }
-                                
         }
     }
     

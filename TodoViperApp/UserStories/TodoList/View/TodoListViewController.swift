@@ -11,7 +11,6 @@ import SnapKit
 
 final class TodoListViewController: UITableViewController, Loaderable {
     
-    private let contentView = UIView()
     var presenter: TodoListPresenterProtocol?
     var todosCount: Int {
         return presenter?.todos.count ?? 0
@@ -49,7 +48,7 @@ final class TodoListViewController: UITableViewController, Loaderable {
     
     @objc
     private func addTapped() {
-        
+        presenter?.createTodo()
     }
     
     @objc
@@ -101,7 +100,7 @@ extension TodoListViewController {
                     dateLabel: Date.getTimeFromTS(timestamp: todo.dueBy))
         
         cell.cellDidTap = { [weak self] in
-//            presenter?.navigateToEditPage()
+            self?.presenter?.updateTodo(todo)
         }
         
         return cell
@@ -119,12 +118,12 @@ extension TodoListViewController {
         }
         
         let delete = UITableViewRowAction(style: .destructive,
-                                          title: Text.delete.localized) { [weak self] (_, indexPath) in
+                                          title: Text.delete.localized) { [weak self] (_, _) in
             self?.presenter?.deleteTodo(byId: todo.id)
         }
 
         let edit = UITableViewRowAction(style: .normal,
-                                        title: Text.edit.localized) { [weak self] (_, indexPath) in
+                                        title: Text.edit.localized) { [weak self] (_, _) in
             self?.presenter?.updateTodo(todo)
         }
 

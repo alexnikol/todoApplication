@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoListPresenter: TodoListPresenterProtocol {
-    
+
     var todos: [Todo] = []
     weak var view: TodoListViewProtocol?
     var interactor: TodoListInteractorInputProtocol?
@@ -23,12 +23,12 @@ class TodoListPresenter: TodoListPresenterProtocol {
         interactor?.refreshTodos()
     }
     
-    func createTodo(_ todo: Todo) {
-        interactor?.createTodo(todo)
+    func createTodo() {
+        router?.navigateToTodoItemCreateScreen(from: view as? UIViewController)
     }
     
     func updateTodo(_ todo: Todo) {
-        interactor?.updateTodo(todo)
+        router?.navigateToTodoItemEditScreen(from: view as? UIViewController, withTodo: todo)
     }
     
     func deleteTodo(byId: Int) {

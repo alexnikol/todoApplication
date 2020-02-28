@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TodoLisInteractor: TodoListInteractorInputProtocol {
+class TodoListInteractor: TodoListInteractorInputProtocol {
     
     var worker: TodosWorkerInputProtocol?
     weak var presenter: TodoListInteractorOutputProtocol?
@@ -46,7 +46,11 @@ class TodoLisInteractor: TodoListInteractorInputProtocol {
     
 }
 
-extension TodoLisInteractor: TodosWorkerOutputProtocol {
+extension TodoListInteractor: TodosWorkerOutputProtocol {
+    
+    func createdTodo(_ todo: Todo?, error: String?) {}
+    
+    func updatedTodo(_ todo: Todo?, error: String?) {}
     
     func fetchedTodos(_ todos: TodosPage?, error: String?) {
         guard let page = todos else {
@@ -54,14 +58,6 @@ extension TodoLisInteractor: TodosWorkerOutputProtocol {
             return
         }
         presenter?.fetchedTodos(page.tasks, error: error)
-    }
-    
-    func createdTodo(_ todo: Todo?, error: String?) {
-        presenter?.createdTodo(todo, error: error)
-    }
-    
-    func updatedTodo(_ todo: Todo?, error: String?) {
-        presenter?.updatedTodo(todo, error: error)
     }
     
     func deletedTodo(_ id: Int?, error: String?) {

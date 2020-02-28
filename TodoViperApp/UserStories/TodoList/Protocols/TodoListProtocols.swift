@@ -6,7 +6,7 @@
 //  Copyright © 2020 AlexAlmostEngineer. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TodoListViewProtocol: class {
 
@@ -27,7 +27,7 @@ protocol TodoListPresenterProtocol: class {
     // VIEW -> PRESENTER
     func refreshList()
     func loadNextPage()
-    func createTodo(_ todo: Todo)
+    func createTodo()
     func updateTodo(_ todo: Todo)
     func deleteTodo(byId: Int)
 }
@@ -41,8 +41,6 @@ protocol TodoListInteractorInputProtocol: class {
     // PRESENTER -> INTERACTOR
     func refreshTodos()
     func fetchNextPageTodos()
-    func createTodo(_ todo: Todo)
-    func updateTodo(_ todo: Todo)
     func deleteTodo(byId: Int)
 }
 
@@ -50,12 +48,12 @@ protocol TodoListInteractorOutputProtocol: class {
     
     // INTERACTOR -> PRESENTER
     func fetchedTodos(_ todos: [Todo], error: String?)
-    func createdTodo(_ todo: Todo?, error: String?)
-    func updatedTodo(_ todo: Todo?, error: String?)
     func deletedTodo(_ id: Int?, error: String?)
 }
 
 protocol TodoListRouterProtocol: class {
 
     // PRESENTER -> ROUTER
+    func navigateToTodoItemCreateScreen(from view: UIViewController?)
+    func navigateToTodoItemEditScreen(from view: UIViewController?, withTodo: Todo)
 }

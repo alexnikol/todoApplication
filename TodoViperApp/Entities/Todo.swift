@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Todo: Decodable {
+struct Todo: Codable {
     
     let id: Int
     let title: String
     let dueBy: Int
     let priority: Priority
     
-    enum Priority: String, Decodable {
+    enum Priority: String, Codable, CaseIterable {
         case low = "Low"
         case normal = "Normal"
         case high = "High"
@@ -31,6 +31,13 @@ struct Todo: Decodable {
         title = try objectsContainer.decode(String.self, forKey: .title)
         dueBy = try objectsContainer.decode(Int.self, forKey: .dueBy)
         priority = try objectsContainer.decode(Priority.self, forKey: .priority)
+    }
+    
+    init(id: Int, title: String, dueBy: Int, priority: Priority) {
+        self.id = id
+        self.title = title
+        self.dueBy = dueBy
+        self.priority = priority
     }
     
 }
