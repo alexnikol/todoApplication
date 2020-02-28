@@ -27,6 +27,20 @@ class TodosWorker: TodosWorkerInputProtocol {
     
     func updateTodo(_ todo: Todo) {}
     
-    func deleteTodo(byId: Int) {}
+    func deleteTodo(byId: Int) {
+        guard let client = interactor else {
+            return
+        }
+        let endPoint = TodosEndpoint.deleteTodo(byId)
+        networkManager.fetch(endPoint: endPoint,
+                             responseType: [String].self) { result, error in
+                                if result != nil {
+                                   client.deletedTodo(byId, error: error)
+                                } else {
+                                    client.deletedTodo(nil, error: error)
+                                }
+                                
+        }
+    }
     
 }

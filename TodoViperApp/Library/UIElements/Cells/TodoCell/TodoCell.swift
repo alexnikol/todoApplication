@@ -13,9 +13,17 @@ class TodoCell: UITableViewCell {
     @IBOutlet weak private var message: UILabel!
     @IBOutlet weak private var priority: UILabel!
     @IBOutlet weak private var dateLabel: UILabel!
+    var cellDidTap: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    private func didTap() {
+        self.cellDidTap?()
     }
     
     func update(message: String, priority: Todo.Priority, dateLabel: String) {

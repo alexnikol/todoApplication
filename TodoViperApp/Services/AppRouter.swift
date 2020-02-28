@@ -20,8 +20,23 @@ final class AppRouter {
     
     static func runMainAppFlow() {
         let window = UIApplication.shared.keyWindow
-        let controller = TodoListRouter.createTodoListRouterModule()
-        window?.rootViewController = UINavigationController(rootViewController: controller)
+        let todoListController = TodoListRouter.createTodoListRouterModule()
+        todoListController.tabBarItem = UITabBarItem(title: Text.todosTitle.localized,
+                                                     image: UIImage(named: "BarItemList"), tag: 0)
+        let settingsController = UIViewController()
+        settingsController.tabBarItem = UITabBarItem(title: Text.settingsTitle.localized,
+                                                     image: UIImage(named: "BarItemSettings"), tag: 1)
+        let tabBarList = [UINavigationController(rootViewController: todoListController),
+                          UINavigationController(rootViewController: settingsController)]
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers(tabBarList, animated: true)
+        if #available(iOS 13.0, *) {
+            tabBarController.overrideUserInterfaceStyle = .light
+            tabBarList.forEach {
+                $0.overrideUserInterfaceStyle = .light
+            }
+        }
+        window?.rootViewController = tabBarController
         runFadeAnimationForWindow(window)
     }
     

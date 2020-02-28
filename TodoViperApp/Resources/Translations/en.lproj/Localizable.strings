@@ -19,3 +19,8 @@
 "invalidEmail" = "Email is invalid";
 "todos" = "Todos";
 "deadline" = "DEADLINE";
+"sort" = "Sort";
+"todosTitle" = "Todos";
+"settingsTitle" = "Settings";
+"delete" = "Delete";
+"edit" = "Edit";

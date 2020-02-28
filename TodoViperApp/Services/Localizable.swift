@@ -27,6 +27,11 @@ enum Text: String, Localizable {
     case invalidEmail
     case todos
     case deadline
+    case sort
+    case todosTitle
+    case settingsTitle
+    case delete
+    case edit
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")

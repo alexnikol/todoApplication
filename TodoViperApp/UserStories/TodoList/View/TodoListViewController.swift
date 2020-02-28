@@ -26,10 +26,42 @@ final class TodoListViewController: UITableViewController, Loaderable {
         }
         setupView()
         navigationItem.title = Text.todos.localized
+        showLoader()
         presenter?.refreshList()
     }
     
-    private func setupView() {}
+    private func setupView() {
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self,
+                                  action: #selector(addTapped))
+        let sort = UIBarButtonItem(title: Text.sort.localized, style: .plain, target: self,
+                                   action: #selector(sortTapped))
+        navigationItem.rightBarButtonItems = [add, sort]
+        let refreshControll = UIRefreshControl()
+        refreshControll.addTarget(self, action: #selector(runRefreashList), for: .valueChanged)
+        refreshControll.tintColor = Colors.darkColor
+        tableView.refreshControl = refreshControll
+    }
+    
+    @objc
+    private func sortTapped() {
+        
+    }
+    
+    @objc
+    private func addTapped() {
+        
+    }
+    
+    @objc
+    private func runRefreashList() {
+        presenter?.refreshList()
+    }
+    
+    private func stopRefreshingVisits() {
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+    }
     
 }
 
@@ -37,10 +69,14 @@ extension TodoListViewController: TodoListViewProtocol {
     
     func refreshList() {
         tableView.reloadData()
+        hideLoader()
+        stopRefreshingVisits()
     }
         
     func showErrorMessage(_ message: String) {
         print("ERROR \(message)")
+        hideLoader()
+        stopRefreshingVisits()
     }
     
 }
@@ -63,11 +99,38 @@ extension TodoListViewController {
         cell.update(message: todo.title,
                     priority: todo.priority,
                     dateLabel: Date.getTimeFromTS(timestamp: todo.dueBy))
+        
+        cell.cellDidTap = { [weak self] in
+//            presenter?.navigateToEditPage()
+        }
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+        
+    override func tableView(_ tableView: UITableView,
+                            editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        guard let todo = presenter?.todos[indexPath.row] else {
+            return nil
+        }
+        
+        let delete = UITableViewRowAction(style: .destructive,
+                                          title: Text.delete.localized) { [weak self] (_, indexPath) in
+            self?.presenter?.deleteTodo(byId: todo.id)
+        }
+
+        let edit = UITableViewRowAction(style: .normal,
+                                        title: Text.edit.localized) { [weak self] (_, indexPath) in
+            self?.presenter?.updateTodo(todo)
+        }
+
+        edit.backgroundColor = Colors.darkColor
+
+        return [delete, edit]
     }
     
 }
