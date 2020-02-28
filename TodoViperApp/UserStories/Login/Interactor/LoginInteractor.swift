@@ -16,13 +16,18 @@ class LoginInteractor: LoginInteractorInputProtocol {
     func loginWith(userName: String, password: String) {
         let request = AuthEndpoint.login(username: userName, password: password)
         networkManager.fetch(endPoint: request, responseType: AuthResponse.self) { (result, error) in
-            if let authCredentials = result,
-                AuthManager.shared.saveCredentials(authCredentials) {
+            if let authCredentials = result, let token = authCredentials.token,
+                AuthManager.shared.saveCredentials(token) {
                 self.presenter?.loginProccessSuccess()
-            } else {
-                let error = error ?? Text.smthWentWrong.localized
-                self.presenter?.loginProccessFail(error)
-            }
+            } else if let result = result,
+               (!result.emailErrors.isEmpty || !result.passwordErrors.isEmpty) {
+               let errors = result.emailErrors + result.passwordErrors
+                let validationError = errors.joined(separator: ", ")
+               self.presenter?.loginProccessFail(String(validationError))
+           } else {
+               let error = error ?? Text.smthWentWrong.localized
+               self.presenter?.loginProccessFail(error)
+           }
         }
     }
     

@@ -52,6 +52,7 @@ final class LoginViewController: BaseController {
     private func setupView() {
         
         alert.textColor = Colors.dangerColor
+        alert.numberOfLines = 0
         let form = getLoginForm()
         let link = UIButton(type: .system)
         link.setTitle(Text.toSignUpFlow.localized, for: .normal)
@@ -72,7 +73,7 @@ final class LoginViewController: BaseController {
             make.topMargin.equalTo(view.snp.topMargin).offset(20.0)
             make.leading.equalTo(view.snp.leading).offset(40.0)
             make.trailing.equalTo(view.snp.trailing).offset(-40.0)
-            make.height.equalTo(20.0)
+            make.height.greaterThanOrEqualTo(20.0)
         }
         
         form.snp.makeConstraints { (make) in
