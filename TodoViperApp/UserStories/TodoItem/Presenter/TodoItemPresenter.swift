@@ -76,6 +76,8 @@ extension TodoItemPresenter: TodoItemInteractorOutputProtocol {
     
     private func successProccess() {
         self.view?.successProccess()
+        let notificationName = Notification.Name(NotificationName.RefreshTodos.rawValue)
+        NotificationCenter.default.post(name: notificationName, object: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.router?.navigateBackToTodosList(from: self.view as? UIViewController)
         }

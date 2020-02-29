@@ -18,18 +18,23 @@ final class TodoListViewController: UITableViewController, Loaderable {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UINib(nibName: "TodoCell", bundle: nil),
-                                forCellReuseIdentifier: CellName.TodoCell.rawValue)
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         }
-        setupView()
-        navigationItem.title = Text.todos.localized
         showLoader()
+        setupView()
         presenter?.refreshList()
+        let notificationName = Notification.Name(NotificationName.RefreshTodos.rawValue)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.refreshListMessage),
+                                               name: notificationName,
+                                               object: nil)
     }
     
     private func setupView() {
+        navigationItem.title = Text.todos.localized
+        self.tableView.register(UINib(nibName: "TodoCell", bundle: nil),
+                                forCellReuseIdentifier: CellName.TodoCell.rawValue)
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self,
                                   action: #selector(addTapped))
         let sort = UIBarButtonItem(title: Text.sort.localized, style: .plain, target: self,
@@ -39,6 +44,11 @@ final class TodoListViewController: UITableViewController, Loaderable {
         refreshControll.addTarget(self, action: #selector(runRefreashList), for: .valueChanged)
         refreshControll.tintColor = Colors.darkColor
         tableView.refreshControl = refreshControll
+    }
+    
+    @objc
+    func refreshListMessage(notification: NSNotification) {
+        self.presenter?.refreshList()
     }
     
     @objc
@@ -73,7 +83,6 @@ extension TodoListViewController: TodoListViewProtocol {
     }
         
     func showErrorMessage(_ message: String) {
-        print("ERROR \(message)")
         hideLoader()
         stopRefreshingVisits()
     }

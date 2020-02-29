@@ -21,7 +21,6 @@ class TodoItemInteractor: TodoItemInteractorInputProtocol {
         }
         let id = todo?.id ?? 0
         let modifiedTodo = Todo(id: id, title: text, dueBy: dueBy, priority: priorityItem)
-        print("modifiedTodo \(modifiedTodo)")
         if todo != nil {
             worker?.updateTodo(modifiedTodo)
         } else {

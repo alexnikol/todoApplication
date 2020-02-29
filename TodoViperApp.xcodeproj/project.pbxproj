@@ -61,6 +61,7 @@
 		8DD4E9A4240958AE00D749AD /* TodoItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4E9A3240958AB00D749AD /* TodoItemRouter.swift */; };
 		8DF09831240A31B000295C4D /* TDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09830240A31B000295C4D /* TDTextView.swift */; };
 		8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */; };
+		8DF09835240ACA0400295C4D /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09834240ACA0400295C4D /* NotificationName.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +126,7 @@
 		8DD4E9A3240958AB00D749AD /* TodoItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemRouter.swift; sourceTree = "<group>"; };
 		8DF09830240A31B000295C4D /* TDTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDTextView.swift; sourceTree = "<group>"; };
 		8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
+		8DF09834240ACA0400295C4D /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -362,6 +364,7 @@
 				8D94AF702407BFD5002D8D56 /* Colors.swift */,
 				8D94AF7E2407C3DC002D8D56 /* Localizable.swift */,
 				8D10D4742409229D00BEA473 /* CellName.swift */,
+				8DF09834240ACA0400295C4D /* NotificationName.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				8DD4E99C24094C9200D749AD /* TodoItemProtocols.swift in Sources */,
 				8D94AFB824080D67002D8D56 /* NetworkResponse.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
+				8DF09835240ACA0400295C4D /* NotificationName.swift in Sources */,
 				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
 				8D10D4752409229D00BEA473 /* CellName.swift in Sources */,
 				8D10D46E2408FD9F00BEA473 /* TasksWorker.swift in Sources */,

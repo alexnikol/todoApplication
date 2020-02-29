@@ -25,7 +25,6 @@ final class TDTextView: UITextView, Validable {
     }
     
     func setToInvalid() {
-        print("setToInvalid")
         self.layer.borderColor = Colors.dangerColor.cgColor
     }
     
