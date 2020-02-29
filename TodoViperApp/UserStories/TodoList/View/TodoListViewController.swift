@@ -31,6 +31,11 @@ final class TodoListViewController: UITableViewController, Loaderable {
                                                object: nil)
     }
     
+    deinit {
+        let notificationName = Notification.Name(NotificationName.RefreshTodos.rawValue)
+        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
+    }
+    
     private func setupView() {
         navigationItem.title = Text.todos.localized
         self.tableView.register(UINib(nibName: "TodoCell", bundle: nil),

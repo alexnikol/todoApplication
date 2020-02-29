@@ -23,7 +23,7 @@ final class TodoItemViewController: BaseController, UITextViewDelegate {
         contentView.backgroundColor = Colors.white
         view = contentView
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = presenter?.getTitle()
