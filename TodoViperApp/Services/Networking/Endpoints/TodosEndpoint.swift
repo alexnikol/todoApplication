@@ -49,10 +49,19 @@ extension TodosEndpoint: EndPointType {
     }
     
     var options: [String: Any]? {
-        let options: [String: Any] = [
-            "page": 1
-        ]
-        return options
+        let encoder = JSONEncoder()
+        switch self {
+        case .fetchTodos:
+            return [:]
+        case .createTodo(let todo):
+            let data = try? encoder.encode(todo)
+            return try? JSONSerialization.jsonObject(with: data ?? Data()) as? [String: Any]
+        case .updateTodo(let todo):
+            let data = try? encoder.encode(todo)
+            return try? JSONSerialization.jsonObject(with: data ?? Data()) as? [String: Any]
+        case .deleteTodo:
+            return nil
+        }
     }
     
     var encoding: ParameterEncoding {

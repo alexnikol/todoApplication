@@ -9,22 +9,24 @@
 import Foundation
 
 class TodoItemInteractor: TodoItemInteractorInputProtocol {
- 
+    
     var worker: TodosWorkerInputProtocol?
     weak var presenter: TodoItemInteractorOutputProtocol?
     var todo: Todo?
     
-    func createTodo(text: String, priority: Todo.Priority, dueBy: Int) {
-        let todo = Todo(id: 0, title: text, dueBy: dueBy, priority: priority)
-        worker?.createTodo(todo)
-    }
-    
-    func updateTodo(text: String, priority: Todo.Priority, dueBy: Int) {
-        guard let todoID = todo?.id else {
+    func saveTodo(text: String, priority: Int, dueBy: Int) {
+        let priority = prioritiesList()[priority]
+        guard let priorityItem = Todo.Priority(rawValue: priority) else {
             return
         }
-        let todo = Todo(id: todoID, title: text, dueBy: dueBy, priority: priority)
-        worker?.updateTodo(todo)
+        let id = todo?.id ?? 0
+        let modifiedTodo = Todo(id: id, title: text, dueBy: dueBy, priority: priorityItem)
+        print("modifiedTodo \(modifiedTodo)")
+        if todo != nil {
+            worker?.updateTodo(modifiedTodo)
+        } else {
+            worker?.createTodo(modifiedTodo)
+        }
     }
     
     func deleteTodo() {
@@ -32,6 +34,18 @@ class TodoItemInteractor: TodoItemInteractorInputProtocol {
             return
         }
         worker?.deleteTodo(byId: todoID)
+    }
+    
+    func prioritiesList() -> [String] {
+        return Todo.Priority.allCases.map { $0.rawValue }
+    }
+    
+    func getTitle() -> String {
+        return todo == nil ? Text.createTitle.localized : Text.editTitle.localized
+    }
+    
+    func getModifiedTodo() -> Todo? {
+        return todo
     }
     
 }

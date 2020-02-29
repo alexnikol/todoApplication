@@ -19,6 +19,18 @@ struct Todo: Codable {
         case low = "Low"
         case normal = "Normal"
         case high = "High"
+        
+        func order() -> Int {
+            switch self {
+            case .high:
+                return 2
+            case .normal:
+                return 1
+            case .low:
+                return 0
+            }
+        }
+        
     }
     
     private enum ResultCodingKeys: String, CodingKey {

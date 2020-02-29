@@ -20,4 +20,6 @@ final class Colors {
     
     static let blue = UIColor.systemBlue
     
+    static let white = UIColor.white
+    
 }

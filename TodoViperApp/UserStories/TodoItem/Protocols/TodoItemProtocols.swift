@@ -13,10 +13,10 @@ protocol TodoItemViewProtocol: class {
     var presenter: TodoItemPresenterProtocol? { get set }
     
     // PRESENTER -> VIEW
-    func successfullyCreated()
-    func successfullyUpdated()
-    func successfullyDeleted()
+    func successProccess()
     func showErrorMessage(_ message: String)
+    func invalidateMessageField()
+    func setFormData(text: String, priorityIndex: Int, dueBy: Int)
 }
 
 protocol TodoItemPresenterProtocol: class {
@@ -26,10 +26,11 @@ protocol TodoItemPresenterProtocol: class {
     var router: TodoItemRouterProtocol? { get set }
     
     // VIEW -> PRESENTER
-    func createTodo(text: String, priority: Todo.Priority, dueBy: Int)
-    func updateTodo(text: String, priority: Todo.Priority, dueBy: Int)
+    func saveTodo(text: String, priority: Int, dueBy: Int)
     func deleteTodo()
     func prioritiesList() -> [String]
+    func getTitle() -> String
+    func updateForm()
 }
 
 protocol TodoItemInteractorInputProtocol: class {
@@ -39,9 +40,11 @@ protocol TodoItemInteractorInputProtocol: class {
     var todo: Todo? { get set }
     
     // PRESENTER -> INTERACTOR
-    func createTodo(text: String, priority: Todo.Priority, dueBy: Int)
-    func updateTodo(text: String, priority: Todo.Priority, dueBy: Int)
+    func saveTodo(text: String, priority: Int, dueBy: Int)
     func deleteTodo()
+    func prioritiesList() -> [String]
+    func getTitle() -> String
+    func getModifiedTodo() -> Todo?
 }
 
 protocol TodoItemInteractorOutputProtocol: class {

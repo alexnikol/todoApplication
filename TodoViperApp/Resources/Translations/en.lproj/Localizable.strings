@@ -24,3 +24,7 @@
 "settingsTitle" = "Settings";
 "delete" = "Delete";
 "edit" = "Edit";
+"createTitle" = "Create Todo";
+"editTitle" = "Edit Todo";
+"success" = "Success!";
+"invalidMessage" = "Message is empty!";

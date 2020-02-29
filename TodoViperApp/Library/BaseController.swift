@@ -17,15 +17,11 @@ protocol Loaderable: UIViewController {
 extension Loaderable {
     
     func showLoader() {
-        DispatchQueue.main.async {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-        }
+        MBProgressHUD.showAdded(to: self.view, animated: true)
     }
     
     func hideLoader() {
-        DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self.view, animated: true)
-        }
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
 }

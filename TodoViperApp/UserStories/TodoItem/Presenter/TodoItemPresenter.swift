@@ -9,25 +9,49 @@
 import UIKit
 
 class TodoItemPresenter: TodoItemPresenterProtocol {
-
+    
     weak var view: TodoItemViewProtocol?
     var interactor: TodoItemInteractorInputProtocol?
     var router: TodoItemRouterProtocol?
     
-    func createTodo(text: String, priority: Todo.Priority, dueBy: Int) {
-        interactor?.createTodo(text: text, priority: priority, dueBy: dueBy)
+    func saveTodo(text: String, priority: Int, dueBy: Int) {
+        let validation = validateTodo(text: text, priority: priority, dueBy: dueBy)
+        if validation.isValid {
+            interactor?.saveTodo(text: text, priority: priority, dueBy: dueBy)
+        } else {
+            view?.invalidateMessageField()
+            view?.showErrorMessage(validation.error ?? Text.smthWentWrong.localized)
+        }
     }
-    
-    func updateTodo(text: String, priority: Todo.Priority, dueBy: Int) {
-        interactor?.updateTodo(text: text, priority: priority, dueBy: dueBy)
-    }
-    
+        
     func deleteTodo() {
         interactor?.deleteTodo()
     }
     
     func prioritiesList() -> [String] {
-        return Todo.Priority.allCases.map { $0.rawValue }
+        return interactor?.prioritiesList() ?? []
+    }
+    
+    func getTitle() -> String {
+        return interactor?.getTitle() ?? ""
+    }
+    
+    func updateForm() {
+        if let todo = interactor?.getModifiedTodo() {
+            self.view?.setFormData(text: todo.title,
+                                   priorityIndex: todo.priority.order(),
+                                   dueBy: todo.dueBy)
+        }
+    }
+    
+    private func validateTodo(text: String, priority: Int, dueBy: Int) -> (isValid: Bool, error: String?) {
+        var result: (isValid: Bool, error: String?) = (false, nil)
+        if text == "" {
+            result.error = Text.invalidMessage.localized
+        } else {
+            result.isValid = true
+        }
+        return result
     }
     
 }
@@ -35,19 +59,26 @@ class TodoItemPresenter: TodoItemPresenterProtocol {
 extension TodoItemPresenter: TodoItemInteractorOutputProtocol {
     
     func createdTodo() {
-        view?.successfullyCreated()
+        successProccess()
     }
     
     func updatedTodo() {
-        view?.successfullyUpdated()
+        successProccess()
     }
     
     func deletedTodo() {
-        view?.successfullyDeleted()
+        successProccess()
     }
     
     func proccessFailed(error: String?) {
         view?.showErrorMessage(error ?? Text.smthWentWrong.localized)
+    }
+    
+    private func successProccess() {
+        self.view?.successProccess()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.router?.navigateBackToTodosList(from: self.view as? UIViewController)
+        }
     }
 
 }

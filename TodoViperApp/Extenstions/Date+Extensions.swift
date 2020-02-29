@@ -18,4 +18,11 @@ extension Date {
        return formatter.string(from: time)
     }
     
+    static func getStringFromDate(_ date: Date) -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy h:mma"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
 }

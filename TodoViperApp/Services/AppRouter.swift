@@ -29,6 +29,7 @@ final class AppRouter {
         let tabBarList = [UINavigationController(rootViewController: todoListController),
                           UINavigationController(rootViewController: settingsController)]
         let tabBarController = UITabBarController()
+        tabBarList.forEach { $0.navigationBar.isTranslucent = false }
         tabBarController.setViewControllers(tabBarList, animated: true)
         if #available(iOS 13.0, *) {
             tabBarController.overrideUserInterfaceStyle = .light

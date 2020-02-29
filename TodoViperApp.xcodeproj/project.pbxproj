@@ -59,6 +59,8 @@
 		8DD4E9A0240952D200D749AD /* TodoItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4E99F240952CF00D749AD /* TodoItemPresenter.swift */; };
 		8DD4E9A22409552A00D749AD /* TodoItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4E9A1240954EE00D749AD /* TodoItemViewController.swift */; };
 		8DD4E9A4240958AE00D749AD /* TodoItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD4E9A3240958AB00D749AD /* TodoItemRouter.swift */; };
+		8DF09831240A31B000295C4D /* TDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09830240A31B000295C4D /* TDTextView.swift */; };
+		8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +123,8 @@
 		8DD4E99F240952CF00D749AD /* TodoItemPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemPresenter.swift; sourceTree = "<group>"; };
 		8DD4E9A1240954EE00D749AD /* TodoItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewController.swift; sourceTree = "<group>"; };
 		8DD4E9A3240958AB00D749AD /* TodoItemRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemRouter.swift; sourceTree = "<group>"; };
+		8DF09830240A31B000295C4D /* TDTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDTextView.swift; sourceTree = "<group>"; };
+		8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +328,7 @@
 				8D94AF962407E062002D8D56 /* UITextField+Extensions.swift */,
 				8D94AFB124080458002D8D56 /* String+Extension.swift */,
 				8D10D47D2409322D00BEA473 /* Date+Extensions.swift */,
+				8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 				8D10D476240923BC00BEA473 /* Cells */,
 				8D94AF8D2407D67D002D8D56 /* TDField.swift */,
 				8D94AF982407E2B9002D8D56 /* TDButton.swift */,
+				8DF09830240A31B000295C4D /* TDTextView.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -704,6 +710,7 @@
 				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
 				8D94AFC124080F28002D8D56 /* AuthEndPoint.swift in Sources */,
 				8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */,
+				8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */,
 				8D94AFBA24080D8F002D8D56 /* EndPointType.swift in Sources */,
 				8DC395DA240845DE00FFBFAC /* SignUpRouter.swift in Sources */,
 				8DD4E9A4240958AE00D749AD /* TodoItemRouter.swift in Sources */,
@@ -731,6 +738,7 @@
 				8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */,
 				8D10D4652408F49500BEA473 /* TodoListViewController.swift in Sources */,
 				8D94AF4C2407A5B0002D8D56 /* AppDelegate.swift in Sources */,
+				8DF09831240A31B000295C4D /* TDTextView.swift in Sources */,
 				8D94AFC824081B9C002D8D56 /* Validator.swift in Sources */,
 				8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */,
 				8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */,

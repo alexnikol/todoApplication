@@ -32,6 +32,10 @@ enum Text: String, Localizable {
     case settingsTitle
     case delete
     case edit
+    case createTitle
+    case editTitle
+    case success
+    case invalidMessage
     
     var localized: String {
         return NSLocalizedString(self.rawValue, comment: "")
