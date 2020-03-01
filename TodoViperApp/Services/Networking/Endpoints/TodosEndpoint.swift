@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum TodosEndpoint {
-    case fetchTodos(page: Int)
+    case fetchTodos(page: Int, sorting: String)
     case createTodo(_ todo: Todo)
     case updateTodo(_ todo: Todo)
     case deleteTodo(_ id: Int)
@@ -48,11 +48,17 @@ extension TodosEndpoint: EndPointType {
         }
     }
     
+    //swiftlint:disable pattern_matching_keywords
     var options: [String: Any]? {
         let encoder = JSONEncoder()
         switch self {
-        case .fetchTodos:
-            return [:]
+        case .fetchTodos(let page, let sorting):
+            let options: [String: Any] = [
+                "page": page,
+                "sort": sorting
+            ]
+            print("options \(options)")
+            return options
         case .createTodo(let todo):
             let data = try? encoder.encode(todo)
             return try? JSONSerialization.jsonObject(with: data ?? Data()) as? [String: Any]
@@ -63,6 +69,7 @@ extension TodosEndpoint: EndPointType {
             return nil
         }
     }
+    //swiftlint:enable pattern_matching_keywords
     
     var encoding: ParameterEncoding {
         switch self {

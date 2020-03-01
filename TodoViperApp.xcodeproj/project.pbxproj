@@ -69,6 +69,18 @@
 		8DF09846240B7C6300295C4D /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09845240B7C4200295C4D /* SettingsInteractor.swift */; };
 		8DF0984A240B834C00295C4D /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09848240B834C00295C4D /* LogoutCell.swift */; };
 		8DF0984B240B834C00295C4D /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DF09849240B834C00295C4D /* LogoutCell.xib */; };
+		8DF09855240B8BBA00295C4D /* SortTypeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09854240B8BBA00295C4D /* SortTypeValue.swift */; };
+		8DF09859240BA7E600295C4D /* SettingsWorkerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09858240BA7C500295C4D /* SettingsWorkerProtocols.swift */; };
+		8DF0985B240BA8A300295C4D /* SettingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0985A240BA8A300295C4D /* SettingsWorker.swift */; };
+		8DF09864240BE8E500295C4D /* SortingScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09862240BE7CE00295C4D /* SortingScreenProtocols.swift */; };
+		8DF09865240BE8E700295C4D /* SortingScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09863240BE8C300295C4D /* SortingScreenViewController.swift */; };
+		8DF09867240BE99D00295C4D /* SortingScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09866240BE97500295C4D /* SortingScreenPresenter.swift */; };
+		8DF09869240BE9AF00295C4D /* SortingScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09868240BE9A600295C4D /* SortingScreenInteractor.swift */; };
+		8DF0986B240BEA5C00295C4D /* SortTypeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0986A240BEA5C00295C4D /* SortTypeKey.swift */; };
+		8DF0986E240BEB5C00295C4D /* SortObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0986D240BEB5C00295C4D /* SortObject.swift */; };
+		8DF09870240BF24400295C4D /* SortingScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0986F240BF24200295C4D /* SortingScreenRouter.swift */; };
+		8DF09873240BF32C00295C4D /* SelectField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09872240BF32C00295C4D /* SelectField.swift */; };
+		8DF09876240BF35B00295C4D /* SelectPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09875240BF35B00295C4D /* SelectPicker.swift */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +153,18 @@
 		8DF09845240B7C4200295C4D /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		8DF09848240B834C00295C4D /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
 		8DF09849240B834C00295C4D /* LogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
+		8DF09854240B8BBA00295C4D /* SortTypeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeValue.swift; sourceTree = "<group>"; };
+		8DF09858240BA7C500295C4D /* SettingsWorkerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorkerProtocols.swift; sourceTree = "<group>"; };
+		8DF0985A240BA8A300295C4D /* SettingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorker.swift; sourceTree = "<group>"; };
+		8DF09862240BE7CE00295C4D /* SortingScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingScreenProtocols.swift; sourceTree = "<group>"; };
+		8DF09863240BE8C300295C4D /* SortingScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingScreenViewController.swift; sourceTree = "<group>"; };
+		8DF09866240BE97500295C4D /* SortingScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingScreenPresenter.swift; sourceTree = "<group>"; };
+		8DF09868240BE9A600295C4D /* SortingScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingScreenInteractor.swift; sourceTree = "<group>"; };
+		8DF0986A240BEA5C00295C4D /* SortTypeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeKey.swift; sourceTree = "<group>"; };
+		8DF0986D240BEB5C00295C4D /* SortObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortObject.swift; sourceTree = "<group>"; };
+		8DF0986F240BF24200295C4D /* SortingScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingScreenRouter.swift; sourceTree = "<group>"; };
+		8DF09872240BF32C00295C4D /* SelectField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectField.swift; sourceTree = "<group>"; };
+		8DF09875240BF35B00295C4D /* SelectPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPicker.swift; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,8 +245,8 @@
 		8D10D46A2408FD6000BEA473 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				8D10D46D2408FD9F00BEA473 /* TasksWorker.swift */,
-				8D10D46F2408FDB900BEA473 /* TasksWorkerProtocols.swift */,
+				8DF09857240BA7B200295C4D /* SettingsWorker */,
+				8DF09856240BA7AA00295C4D /* TasksWorker */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -355,6 +379,9 @@
 			children = (
 				8D10D4662408FB3700BEA473 /* Todo.swift */,
 				8D10D4682408FCCC00BEA473 /* TodosPage.swift */,
+				8DF09854240B8BBA00295C4D /* SortTypeValue.swift */,
+				8DF0986A240BEA5C00295C4D /* SortTypeKey.swift */,
+				8DF0986D240BEB5C00295C4D /* SortObject.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -362,6 +389,7 @@
 		8D94AF652407B608002D8D56 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				8DF0985C240BE7A400295C4D /* SortingScreen */,
 				8DF09836240B790000295C4D /* Settings */,
 				8DD4E99524094C6F00D749AD /* TodoItem */,
 				8D10D4562408F46400BEA473 /* TodoList */,
@@ -477,7 +505,7 @@
 		8D94AF8C2407D661002D8D56 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
-				8DF09851240B84A500295C4D /* SelectTableCell */,
+				8DF09871240BF32000295C4D /* SelectField */,
 				8D10D476240923BC00BEA473 /* Cells */,
 				8D94AF8D2407D67D002D8D56 /* TDField.swift */,
 				8D94AF982407E2B9002D8D56 /* TDButton.swift */,
@@ -639,11 +667,83 @@
 			path = LogoutCell;
 			sourceTree = "<group>";
 		};
-		8DF09851240B84A500295C4D /* SelectTableCell */ = {
+		8DF09856240BA7AA00295C4D /* TasksWorker */ = {
 			isa = PBXGroup;
 			children = (
+				8D10D46D2408FD9F00BEA473 /* TasksWorker.swift */,
+				8D10D46F2408FDB900BEA473 /* TasksWorkerProtocols.swift */,
 			);
-			path = SelectTableCell;
+			path = TasksWorker;
+			sourceTree = "<group>";
+		};
+		8DF09857240BA7B200295C4D /* SettingsWorker */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09858240BA7C500295C4D /* SettingsWorkerProtocols.swift */,
+				8DF0985A240BA8A300295C4D /* SettingsWorker.swift */,
+			);
+			path = SettingsWorker;
+			sourceTree = "<group>";
+		};
+		8DF0985C240BE7A400295C4D /* SortingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0985D240BE7C900295C4D /* Interactor */,
+				8DF0985E240BE7C900295C4D /* Presenter */,
+				8DF0985F240BE7C900295C4D /* Protocols */,
+				8DF09860240BE7C900295C4D /* Router */,
+				8DF09861240BE7C900295C4D /* View */,
+			);
+			path = SortingScreen;
+			sourceTree = "<group>";
+		};
+		8DF0985D240BE7C900295C4D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09868240BE9A600295C4D /* SortingScreenInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8DF0985E240BE7C900295C4D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09866240BE97500295C4D /* SortingScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8DF0985F240BE7C900295C4D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09862240BE7CE00295C4D /* SortingScreenProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8DF09860240BE7C900295C4D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0986F240BF24200295C4D /* SortingScreenRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8DF09861240BE7C900295C4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09863240BE8C300295C4D /* SortingScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DF09871240BF32000295C4D /* SelectField */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09872240BF32C00295C4D /* SelectField.swift */,
+				8DF09875240BF35B00295C4D /* SelectPicker.swift */,
+			);
+			path = SelectField;
 			sourceTree = "<group>";
 		};
 		C08E65B817772E886775E463 /* Frameworks */ = {
@@ -795,15 +895,19 @@
 				8D10D4622408F49500BEA473 /* TodoListPresenter.swift in Sources */,
 				8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */,
 				8D10D4732409037100BEA473 /* TodosEndpoint.swift in Sources */,
+				8DF09864240BE8E500295C4D /* SortingScreenProtocols.swift in Sources */,
+				8DF0985B240BA8A300295C4D /* SettingsWorker.swift in Sources */,
 				8D10D479240923D700BEA473 /* TodoCell.swift in Sources */,
 				8DF0984A240B834C00295C4D /* LogoutCell.swift in Sources */,
 				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
 				8D94AFC124080F28002D8D56 /* AuthEndPoint.swift in Sources */,
 				8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */,
+				8DF09876240BF35B00295C4D /* SelectPicker.swift in Sources */,
 				8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */,
 				8D94AFBA24080D8F002D8D56 /* EndPointType.swift in Sources */,
 				8DF09842240B7B7A00295C4D /* SettingsRouter.swift in Sources */,
 				8DC395DA240845DE00FFBFAC /* SignUpRouter.swift in Sources */,
+				8DF09870240BF24400295C4D /* SortingScreenRouter.swift in Sources */,
 				8DD4E9A4240958AE00D749AD /* TodoItemRouter.swift in Sources */,
 				8DC395DD240845EA00FFBFAC /* SignUpProtocols.swift in Sources */,
 				8DD4E99E24094F8900D749AD /* TodoItemInteractor.swift in Sources */,
@@ -817,13 +921,19 @@
 				8D94AFB824080D67002D8D56 /* NetworkResponse.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
 				8DF09840240B7A5700295C4D /* SettingsViewController.swift in Sources */,
+				8DF09865240BE8E700295C4D /* SortingScreenViewController.swift in Sources */,
 				8DF09835240ACA0400295C4D /* NotificationName.swift in Sources */,
 				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
+				8DF0986B240BEA5C00295C4D /* SortTypeKey.swift in Sources */,
+				8DF09859240BA7E600295C4D /* SettingsWorkerProtocols.swift in Sources */,
+				8DF09855240B8BBA00295C4D /* SortTypeValue.swift in Sources */,
 				8D10D4752409229D00BEA473 /* CellName.swift in Sources */,
 				8D10D46E2408FD9F00BEA473 /* TasksWorker.swift in Sources */,
 				8D10D4692408FCCC00BEA473 /* TodosPage.swift in Sources */,
 				8D94AF502407A5B0002D8D56 /* BaseController.swift in Sources */,
+				8DF09867240BE99D00295C4D /* SortingScreenPresenter.swift in Sources */,
 				8DF0983D240B792A00295C4D /* SettingsProtocols.swift in Sources */,
+				8DF09873240BF32C00295C4D /* SelectField.swift in Sources */,
 				8D94AFB224080458002D8D56 /* String+Extension.swift in Sources */,
 				8DD4E9A22409552A00D749AD /* TodoItemViewController.swift in Sources */,
 				8DC395DE240845EF00FFBFAC /* SignUpViewController.swift in Sources */,
@@ -836,8 +946,10 @@
 				8DF09831240A31B000295C4D /* TDTextView.swift in Sources */,
 				8DF09844240B7BD000295C4D /* SettingsPresenter.swift in Sources */,
 				8D94AFC824081B9C002D8D56 /* Validator.swift in Sources */,
+				8DF09869240BE9AF00295C4D /* SortingScreenInteractor.swift in Sources */,
 				8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */,
 				8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */,
+				8DF0986E240BEB5C00295C4D /* SortObject.swift in Sources */,
 				8D10D47E2409322D00BEA473 /* Date+Extensions.swift in Sources */,
 				8D10D4702408FDB900BEA473 /* TasksWorkerProtocols.swift in Sources */,
 				8D94AFBC24080E03002D8D56 /* NetworkSettingsManager.swift in Sources */,

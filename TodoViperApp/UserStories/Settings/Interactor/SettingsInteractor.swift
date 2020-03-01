@@ -9,8 +9,8 @@
 import Foundation
 
 class SettingsInteractor: SettingsInteractorInputProtocol {
-        
-    var worker: TodosWorkerInputProtocol?
+    
+    var worker: SettingsWorkerInputProtocol?
     weak var presenter: SettingsInteractorOutputProtocol?
     
     func logout() {
@@ -18,8 +18,13 @@ class SettingsInteractor: SettingsInteractorInputProtocol {
         presenter?.didLogout()
     }
     
-    func changeSortTo(_ sort: String) {
-        presenter?.didSortChange()
+    init(worker: SettingsWorkerInputProtocol) {
+        self.worker = worker
     }
     
+    func getActiveSettings() -> SortObject {
+        let settings = worker?.getSortSetting()
+        return settings ?? SortObject(key: .dueBy, value: .asc)
+    }
+     
 }

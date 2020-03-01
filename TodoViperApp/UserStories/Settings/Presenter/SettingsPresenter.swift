@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsPresenter: SettingsPresenterProtocol {
-    
+   
     weak var view: SettingsViewProtocol?
     var interactor: SettingsInteractorInputProtocol?
     var router: SettingsRouterProtocol?
@@ -17,9 +17,16 @@ class SettingsPresenter: SettingsPresenterProtocol {
     func logout() {
         interactor?.logout()
     }
-       
-    func changeSortTo(_ sort: String) {
-        interactor?.changeSortTo(sort)
+
+    func openSortSettings() {
+        router?.navigateToSortSettings(view: view as? UIViewController)
+    }
+    
+    func getActiveSettings() -> String {
+        let result = interactor?.getActiveSettings() ?? SortObject(key: .dueBy, value: .asc)
+        let keyString = result.key.rawValue.capitalized
+        let valueString = result.value.rawValue.uppercased()
+        return "Property - \(keyString), Order - \(valueString)"
     }
 
 }
@@ -28,10 +35,6 @@ extension SettingsPresenter: SettingsInteractorOutputProtocol {
     
     func didLogout() {
         router?.navigateToAuthFlow()
-    }
-    
-    func didSortChange() {
-        view?.sortSuccessfullyChanged()
     }
     
 }

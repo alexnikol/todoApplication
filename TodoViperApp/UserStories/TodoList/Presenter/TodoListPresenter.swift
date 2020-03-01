@@ -35,6 +35,10 @@ class TodoListPresenter: TodoListPresenterProtocol {
         interactor?.deleteTodo(byId: byId)
     }
     
+    func sortingButtonDidTap() {
+        router?.navigateToSortingSettings(from: view as? UIViewController)
+    }
+    
 }
 
 extension TodoListPresenter: TodoListInteractorOutputProtocol {

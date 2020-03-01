@@ -10,6 +10,15 @@ import UIKit
 
 class TodoListRouter: TodoListRouterProtocol {
     
+    func navigateToSortingSettings(from view: UIViewController?) {
+        let sortingScreen = SortingScreenRouter.createSortingScreenRouterModule()
+        let navigationController = UINavigationController(rootViewController: sortingScreen)
+        if #available(iOS 13.0, *) {
+            navigationController.overrideUserInterfaceStyle = .light
+        }
+        view?.present(navigationController, animated: true, completion: nil)
+    }
+    
     func navigateToTodoItemCreateScreen(from view: UIViewController?) {
         let createController = TodoItemRouter.createTodoItemRouterModule(forTodo: nil)
         createController.hidesBottomBarWhenPushed = true
@@ -24,6 +33,7 @@ class TodoListRouter: TodoListRouterProtocol {
     
     static func createTodoListRouterModule() -> UIViewController {
         let todosWorker: TodosWorkerInputProtocol = TodosWorker()
+        let settingsWorker: SettingsWorkerInputProtocol = SettingsWorker()
         let TodoListController = TodoListViewController()
         let presenter: TodoListPresenterProtocol & TodoListInteractorOutputProtocol = TodoListPresenter()
         TodoListController.presenter = presenter
@@ -31,7 +41,8 @@ class TodoListRouter: TodoListRouterProtocol {
         let interactor: TodoListInteractorInputProtocol & TodosWorkerOutputProtocol = TodoListInteractor()
         interactor.presenter = presenter
         todosWorker.interactor = interactor
-        interactor.worker = todosWorker
+        interactor.todosWorker = todosWorker
+        interactor.settingsWorker = settingsWorker
         presenter.interactor = interactor
         let router: TodoListRouterProtocol = TodoListRouter()
         presenter.router = router

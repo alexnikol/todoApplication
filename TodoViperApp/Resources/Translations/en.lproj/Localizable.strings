@@ -30,3 +30,6 @@
 "invalidMessage" = "Message is empty!";
 "Cancel" = "Cancel";
 "Logout" = "Logout";
+"Sorting" = "Sorting";
+"Saved" = "Saved";
+"editSortingTitle" = "Edit sorting settings";

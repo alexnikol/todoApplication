@@ -58,7 +58,7 @@ final class TodoListViewController: UITableViewController, Loaderable {
     
     @objc
     private func sortTapped() {
-        
+        presenter?.sortingButtonDidTap()
     }
     
     @objc
@@ -76,7 +76,7 @@ final class TodoListViewController: UITableViewController, Loaderable {
             self.tableView.refreshControl?.endRefreshing()
         }
     }
-    
+        
 }
 
 extension TodoListViewController: TodoListViewProtocol {

@@ -13,11 +13,12 @@ class TodosWorker: TodosWorkerInputProtocol {
     private let networkManager = NetworkManager()
     weak var interactor: TodosWorkerOutputProtocol?
     
-    func fetchTodos(byPage: Int) {
+    func fetchTodos(byPage: Int, withSort sort: SortObject) {
         guard let client = interactor else {
             return
         }
-        let endPoint = TodosEndpoint.fetchTodos(page: byPage)
+        let sortingKey = sort.getOptions()
+        let endPoint = TodosEndpoint.fetchTodos(page: byPage, sorting: sortingKey)
         networkManager.fetch(endPoint: endPoint,
                              responseType: TodosPage.self,
                              completion: client.fetchedTodos)

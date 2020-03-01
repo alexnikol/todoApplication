@@ -10,7 +10,7 @@ import Foundation
 
 protocol TodosWorkerInputProtocol: class {
     var interactor: TodosWorkerOutputProtocol? { get set }
-    func fetchTodos(byPage: Int)
+    func fetchTodos(byPage: Int, withSort: SortObject)
     func createTodo(_ todo: Todo)
     func updateTodo(_ todo: Todo)
     func deleteTodo(byId: Int)

@@ -44,7 +44,11 @@ final class AppRouter {
     static func runAuthFlow() {
         let window = UIApplication.shared.keyWindow
         let loginController = LoginRouter.createLoginRouterModule()
-        window?.rootViewController = UINavigationController(rootViewController: loginController)
+        let navigationController = UINavigationController(rootViewController: loginController)
+        if #available(iOS 13.0, *) {
+            navigationController.overrideUserInterfaceStyle = .light
+        }
+        window?.rootViewController = navigationController
         runFadeAnimationForWindow(window)
     }
     

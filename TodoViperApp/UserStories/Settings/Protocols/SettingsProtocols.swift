@@ -13,7 +13,6 @@ protocol SettingsViewProtocol: class {
     var presenter: SettingsPresenterProtocol? { get set }
     
     // PRESENTER -> VIEW
-    func sortSuccessfullyChanged()
 }
 
 protocol SettingsPresenterProtocol: class {
@@ -24,27 +23,28 @@ protocol SettingsPresenterProtocol: class {
     
     // VIEW -> PRESENTER
     func logout()
-    func changeSortTo(_ sort: String)
+    func openSortSettings()
+    func getActiveSettings() -> String
 }
 
 protocol SettingsInteractorInputProtocol: class {
     
     var presenter: SettingsInteractorOutputProtocol? { get set }
-    
+    func getActiveSettings() -> SortObject
     // PRESENTER -> INTERACTOR
     func logout()
-    func changeSortTo(_ sort: String)
 }
 
 protocol SettingsInteractorOutputProtocol: class {
     
     // INTERACTOR -> PRESENTER
     func didLogout()
-    func didSortChange()
 }
 
 protocol SettingsRouterProtocol: class {
 
     // PRESENTER -> ROUTER
     func navigateToAuthFlow()
+    func navigateToSortSettings(view: UIViewController?)
+
 }

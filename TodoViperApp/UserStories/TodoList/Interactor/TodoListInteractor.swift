@@ -9,41 +9,47 @@
 import Foundation
 
 class TodoListInteractor: TodoListInteractorInputProtocol {
-    
-    var worker: TodosWorkerInputProtocol?
+  
+    var settingsWorker: SettingsWorkerInputProtocol?
+    var todosWorker: TodosWorkerInputProtocol?
     weak var presenter: TodoListInteractorOutputProtocol?
     var paginationMeta: PaginationMeta?
     
+    var currentSort: SortObject {
+        return settingsWorker?.getSortSetting()
+            ?? SortObject(key: .dueBy, value: .asc)
+    }
+    
     func refreshTodos() {
         paginationMeta = nil
-        worker?.fetchTodos(byPage: 0)
+        todosWorker?.fetchTodos(byPage: 0, withSort: currentSort)
     }
     
     func fetchNextPageTodos() {
         var nextPage = 1
         guard let pagination = paginationMeta else {
-            worker?.fetchTodos(byPage: nextPage)
+            todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
             return
         }
         if nextPage > pagination.count {
             return
         }
         nextPage = pagination.current + 1
-        worker?.fetchTodos(byPage: nextPage)
+        todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
     }
     
     func createTodo(_ todo: Todo) {
-        worker?.createTodo(todo)
+        todosWorker?.createTodo(todo)
     }
     
     func updateTodo(_ todo: Todo) {
-        worker?.updateTodo(todo)
+        todosWorker?.updateTodo(todo)
     }
     
     func deleteTodo(byId: Int) {
-        worker?.deleteTodo(byId: byId)
+        todosWorker?.deleteTodo(byId: byId)
     }
-    
+
 }
 
 extension TodoListInteractor: TodosWorkerOutputProtocol {

@@ -10,6 +10,15 @@ import UIKit
 
 class SettingsRouter: SettingsRouterProtocol {
     
+    func navigateToSortSettings(view: UIViewController?) {
+        let sortingScreen = SortingScreenRouter.createSortingScreenRouterModule()
+        let navigationController = UINavigationController(rootViewController: sortingScreen)
+        if #available(iOS 13.0, *) {
+            navigationController.overrideUserInterfaceStyle = .light
+        }
+        view?.present(navigationController, animated: true, completion: nil)
+    }
+    
     func navigateToAuthFlow() {
         AppRouter.runAuthFlow()
     }
@@ -19,7 +28,7 @@ class SettingsRouter: SettingsRouterProtocol {
         let presenter: SettingsPresenterProtocol & SettingsInteractorOutputProtocol = SettingsPresenter()
         SettingsController.presenter = presenter
         presenter.view = SettingsController
-        let interactor: SettingsInteractorInputProtocol = SettingsInteractor()
+        let interactor: SettingsInteractorInputProtocol = SettingsInteractor(worker: SettingsWorker())
         interactor.presenter = presenter
         presenter.interactor = interactor
         let router: SettingsRouterProtocol = SettingsRouter()

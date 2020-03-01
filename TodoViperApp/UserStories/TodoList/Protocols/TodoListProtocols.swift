@@ -30,12 +30,14 @@ protocol TodoListPresenterProtocol: class {
     func createTodo()
     func updateTodo(_ todo: Todo)
     func deleteTodo(byId: Int)
+    func sortingButtonDidTap()
 }
 
 protocol TodoListInteractorInputProtocol: class {
     
     var presenter: TodoListInteractorOutputProtocol? { get set }
-    var worker: TodosWorkerInputProtocol? { get set }
+    var todosWorker: TodosWorkerInputProtocol? { get set }
+    var settingsWorker: SettingsWorkerInputProtocol? { get set }
     var paginationMeta: PaginationMeta? { get set }
     
     // PRESENTER -> INTERACTOR
@@ -54,6 +56,7 @@ protocol TodoListInteractorOutputProtocol: class {
 protocol TodoListRouterProtocol: class {
 
     // PRESENTER -> ROUTER
+    func navigateToSortingSettings(from view: UIViewController?)
     func navigateToTodoItemCreateScreen(from view: UIViewController?)
     func navigateToTodoItemEditScreen(from view: UIViewController?, withTodo: Todo)
 }
