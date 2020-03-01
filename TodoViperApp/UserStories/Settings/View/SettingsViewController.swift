@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  SortingScreenViewController.swift
 //  TodoViperApp
 //
 //  Created by Alexander Nikolaychuk on 27.02.2020.
@@ -8,11 +8,18 @@
 
 import UIKit
 import SnapKit
+import MBProgressHUD
 
-final class SettingsViewController: UITableViewController, Loaderable {
+final class SettingsViewController: BaseController {
     
+    private let contentView = UIView()
     var presenter: SettingsPresenterProtocol?
-        
+    
+    override func loadView() {
+        contentView.backgroundColor = Colors.white
+        view = contentView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if #available(iOS 13.0, *) {
@@ -23,11 +30,58 @@ final class SettingsViewController: UITableViewController, Loaderable {
     
     private func setupView() {
         navigationItem.title = Text.settingsTitle.localized
-        tableView.register(UINib(nibName: CellName.LogoutCell.rawValue, bundle: nil),
-                           forCellReuseIdentifier: CellName.LogoutCell.rawValue)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CellName.SortChangeCell.rawValue)
+        let sortSettings = UILabel()
+        let text = presenter?.getActiveSettings() ?? ""
+        sortSettings.text = """
+                            \(Text.Sorting.localized):
+                            \(text)
+                            """
+        sortSettings.textColor = Colors.darkColor
+        sortSettings.numberOfLines = 0
+        let logout = UIButton(type: .system)
+        logout.setTitle(Text.Logout.localized, for: .normal)
+        logout.addTarget(self, action: #selector(didTapLogout), for: .touchUpInside)
+        let editSorting = UIButton(type: .system)
+        editSorting.setTitle(Text.editSortingTitle.localized, for: .normal)
+        editSorting.addTarget(self, action: #selector(openSortingSettings),
+                              for: .touchUpInside)
+        self.view.addSubview(sortSettings)
+        self.view.addSubview(editSorting)
+        self.view.addSubview(logout)
+        
+        sortSettings.snp.makeConstraints { (make) in
+            make.top.equalTo(view.snp.topMargin).offset(20.0)
+            make.leading.equalTo(view.snp.leading).offset(40.0)
+            make.trailing.equalTo(view.snp.trailing).offset(-40.0)
+            make.height.equalTo(60.0)
+        }
+        
+        editSorting.snp.makeConstraints { (make) in
+            make.top.equalTo(sortSettings.snp.bottom).offset(20.0)
+            make.leading.equalTo(view.snp.leading).offset(40.0)
+            make.trailing.equalTo(view.snp.trailing).offset(-40.0)
+            make.height.equalTo(80.0)
+        }
+                
+        logout.snp.makeConstraints { (make) in
+            make.top.equalTo(editSorting.snp.bottom).offset(30.0)
+            make.leading.equalTo(view.snp.leading).offset(40.0)
+            make.trailing.equalTo(view.snp.trailing).offset(-40.0)
+            make.height.equalTo(24.0)
+            make.bottom.greaterThanOrEqualTo(view.snp.bottom).offset(40.0).priority(750.0)
+        }
+    }
+        
+    @objc
+    private func didTapLogout() {
+        openApprovalController()
     }
     
+    @objc
+    private func openSortingSettings() {
+        presenter?.openSortSettings()
+    }
+
     private func openApprovalController() {
         let alert = UIAlertController(title: nil, message: nil,
                                       preferredStyle: .actionSheet)
@@ -35,51 +89,12 @@ final class SettingsViewController: UITableViewController, Loaderable {
         alert.addAction(UIAlertAction(title: Text.Logout.localized, style: .destructive) { _ in
             self.presenter?.logout()
         })
+        if #available(iOS 13.0, *) {
+            alert.overrideUserInterfaceStyle = .light
+        }
         self.present(alert, animated: true, completion: nil)
     }
     
 }
 
-extension SettingsViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var cell: UITableViewCell!
-        
-        if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellName.SortChangeCell.rawValue)
-            cell.textLabel?.text = "Sort"
-            cell.accessoryType = .disclosureIndicator
-        } else if indexPath.row == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellName.LogoutCell.rawValue)
-            cell.accessoryType = .none
-            
-            (cell  as? LogoutCell)?.logoutProccess = { [weak self] in
-                self?.openApprovalController()
-            }
-            
-        }
-
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            print("OPEN SELECT VIEW")
-        }
-    }
-    
-}
-
-extension SettingsViewController: SettingsViewProtocol {
-    
-    func sortSuccessfullyChanged() {
-        print("successProccess")
-    }
-    
-}
+extension SettingsViewController: SettingsViewProtocol {}
