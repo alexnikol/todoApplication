@@ -10,4 +10,6 @@ import Foundation
 
 enum CellName: String {
     case TodoCell
+    case LogoutCell
+    case SortChangeCell
 }

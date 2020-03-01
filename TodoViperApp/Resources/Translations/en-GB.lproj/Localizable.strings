@@ -28,3 +28,5 @@
 "editTitle" = "Edit Todo";
 "success" = "Success!";
 "invalidMessage" = "Message is empty!";
+"Cancel" = "Cancel";
+"Logout" = "Logout";

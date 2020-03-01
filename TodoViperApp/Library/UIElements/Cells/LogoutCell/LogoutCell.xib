@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="KGk-i7-Jjw" customClass="LogoutCell" customModule="TodoViperApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTB-tF-2aP">
+                        <rect key="frame" x="0.0" y="0.0" width="384" height="62"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xLA-Jq-aAP">
+                                <rect key="frame" x="0.0" y="0.0" width="384" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutDidTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZZE-kz-VfN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xLA-Jq-aAP" firstAttribute="top" secondItem="pTB-tF-2aP" secondAttribute="top" id="Gv1-Bt-hNr"/>
+                            <constraint firstItem="xLA-Jq-aAP" firstAttribute="leading" secondItem="pTB-tF-2aP" secondAttribute="leading" id="aSI-g6-Abl"/>
+                            <constraint firstAttribute="trailing" secondItem="xLA-Jq-aAP" secondAttribute="trailing" id="sJm-XX-KEq"/>
+                            <constraint firstAttribute="bottom" secondItem="xLA-Jq-aAP" secondAttribute="bottom" id="ukv-Md-Db3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pTB-tF-2aP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7Ll-ZL-lo7"/>
+                    <constraint firstItem="pTB-tF-2aP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ugh-Wt-ykd"/>
+                    <constraint firstAttribute="trailing" secondItem="pTB-tF-2aP" secondAttribute="trailing" id="XIf-AW-Ps1"/>
+                    <constraint firstAttribute="bottom" secondItem="pTB-tF-2aP" secondAttribute="bottom" id="qaT-Sm-Xwt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="178.2608695652174" y="137.27678571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

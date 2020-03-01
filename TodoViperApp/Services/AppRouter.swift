@@ -23,7 +23,7 @@ final class AppRouter {
         let todoListController = TodoListRouter.createTodoListRouterModule()
         todoListController.tabBarItem = UITabBarItem(title: Text.todosTitle.localized,
                                                      image: UIImage(named: "BarItemList"), tag: 0)
-        let settingsController = UIViewController()
+        let settingsController = SettingsRouter.createSettingsRouterModule()
         settingsController.tabBarItem = UITabBarItem(title: Text.settingsTitle.localized,
                                                      image: UIImage(named: "BarItemSettings"), tag: 1)
         let tabBarList = [UINavigationController(rootViewController: todoListController),

@@ -71,7 +71,7 @@ final class TodoListViewController: UITableViewController, Loaderable {
         presenter?.refreshList()
     }
     
-    private func stopRefreshingVisits() {
+    private func stopRefreshingTodos() {
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
         }
@@ -84,12 +84,12 @@ extension TodoListViewController: TodoListViewProtocol {
     func refreshList() {
         tableView.reloadData()
         hideLoader()
-        stopRefreshingVisits()
+        stopRefreshingTodos()
     }
         
     func showErrorMessage(_ message: String) {
         hideLoader()
-        stopRefreshingVisits()
+        stopRefreshingTodos()
     }
     
 }

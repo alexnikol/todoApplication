@@ -62,6 +62,13 @@
 		8DF09831240A31B000295C4D /* TDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09830240A31B000295C4D /* TDTextView.swift */; };
 		8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */; };
 		8DF09835240ACA0400295C4D /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09834240ACA0400295C4D /* NotificationName.swift */; };
+		8DF0983D240B792A00295C4D /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0983C240B791700295C4D /* SettingsProtocols.swift */; };
+		8DF09840240B7A5700295C4D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0983F240B7A4000295C4D /* SettingsViewController.swift */; };
+		8DF09842240B7B7A00295C4D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09841240B7B5400295C4D /* SettingsRouter.swift */; };
+		8DF09844240B7BD000295C4D /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09843240B7BBB00295C4D /* SettingsPresenter.swift */; };
+		8DF09846240B7C6300295C4D /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09845240B7C4200295C4D /* SettingsInteractor.swift */; };
+		8DF0984A240B834C00295C4D /* LogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09848240B834C00295C4D /* LogoutCell.swift */; };
+		8DF0984B240B834C00295C4D /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DF09849240B834C00295C4D /* LogoutCell.xib */; };
 		A5CBB68F18AB06609CDF154D /* Pods_TodoViperApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25C5ED65DE469B70763EFE72 /* Pods_TodoViperApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +134,13 @@
 		8DF09830240A31B000295C4D /* TDTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDTextView.swift; sourceTree = "<group>"; };
 		8DF09832240ABBE000295C4D /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
 		8DF09834240ACA0400295C4D /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		8DF0983C240B791700295C4D /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		8DF0983F240B7A4000295C4D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8DF09841240B7B5400295C4D /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		8DF09843240B7BBB00295C4D /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		8DF09845240B7C4200295C4D /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		8DF09848240B834C00295C4D /* LogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCell.swift; sourceTree = "<group>"; };
+		8DF09849240B834C00295C4D /* LogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
 		CE466D07816827E3551FEED1 /* Pods-TodoViperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.debug.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DFA840A8E66164B11F5BBC57 /* Pods-TodoViperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoViperApp.release.xcconfig"; path = "Target Support Files/Pods-TodoViperApp/Pods-TodoViperApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +230,7 @@
 		8D10D476240923BC00BEA473 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8DF09847240B832800295C4D /* LogoutCell */,
 				8D10D47F240932D100BEA473 /* TodoCell */,
 			);
 			path = Cells;
@@ -347,6 +362,7 @@
 		8D94AF652407B608002D8D56 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				8DF09836240B790000295C4D /* Settings */,
 				8DD4E99524094C6F00D749AD /* TodoItem */,
 				8D10D4562408F46400BEA473 /* TodoList */,
 				8D18E67A24083B80005C75B8 /* SignUp */,
@@ -461,6 +477,7 @@
 		8D94AF8C2407D661002D8D56 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				8DF09851240B84A500295C4D /* SelectTableCell */,
 				8D10D476240923BC00BEA473 /* Cells */,
 				8D94AF8D2407D67D002D8D56 /* TDField.swift */,
 				8D94AF982407E2B9002D8D56 /* TDButton.swift */,
@@ -561,6 +578,74 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8DF09836240B790000295C4D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0983B240B790C00295C4D /* Interactor */,
+				8DF09839240B790C00295C4D /* Presenter */,
+				8DF0983A240B790C00295C4D /* Protocols */,
+				8DF09837240B790B00295C4D /* Router */,
+				8DF09838240B790B00295C4D /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		8DF09837240B790B00295C4D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09841240B7B5400295C4D /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		8DF09838240B790B00295C4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0983F240B7A4000295C4D /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DF09839240B790C00295C4D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09843240B7BBB00295C4D /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		8DF0983A240B790C00295C4D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0983C240B791700295C4D /* SettingsProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8DF0983B240B790C00295C4D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09845240B7C4200295C4D /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		8DF09847240B832800295C4D /* LogoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09848240B834C00295C4D /* LogoutCell.swift */,
+				8DF09849240B834C00295C4D /* LogoutCell.xib */,
+			);
+			path = LogoutCell;
+			sourceTree = "<group>";
+		};
+		8DF09851240B84A500295C4D /* SelectTableCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectTableCell;
+			sourceTree = "<group>";
+		};
 		C08E65B817772E886775E463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +721,7 @@
 				8D94AF582407A5B2002D8D56 /* LaunchScreen.storyboard in Resources */,
 				8D10D47A240923D700BEA473 /* TodoCell.xib in Resources */,
 				8D94AF552407A5B2002D8D56 /* Assets.xcassets in Resources */,
+				8DF0984B240B834C00295C4D /* LogoutCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,11 +796,13 @@
 				8D94AF7F2407C3DC002D8D56 /* Localizable.swift in Sources */,
 				8D10D4732409037100BEA473 /* TodosEndpoint.swift in Sources */,
 				8D10D479240923D700BEA473 /* TodoCell.swift in Sources */,
+				8DF0984A240B834C00295C4D /* LogoutCell.swift in Sources */,
 				8D94AF892407C725002D8D56 /* LoginProtocols.swift in Sources */,
 				8D94AFC124080F28002D8D56 /* AuthEndPoint.swift in Sources */,
 				8D94AF9B2407EFE1002D8D56 /* LoginPresenter.swift in Sources */,
 				8DF09833240ABBE000295C4D /* UITextView+Extensions.swift in Sources */,
 				8D94AFBA24080D8F002D8D56 /* EndPointType.swift in Sources */,
+				8DF09842240B7B7A00295C4D /* SettingsRouter.swift in Sources */,
 				8DC395DA240845DE00FFBFAC /* SignUpRouter.swift in Sources */,
 				8DD4E9A4240958AE00D749AD /* TodoItemRouter.swift in Sources */,
 				8DC395DD240845EA00FFBFAC /* SignUpProtocols.swift in Sources */,
@@ -728,21 +816,25 @@
 				8DD4E99C24094C9200D749AD /* TodoItemProtocols.swift in Sources */,
 				8D94AFB824080D67002D8D56 /* NetworkResponse.swift in Sources */,
 				8D94AF712407BFD5002D8D56 /* Colors.swift in Sources */,
+				8DF09840240B7A5700295C4D /* SettingsViewController.swift in Sources */,
 				8DF09835240ACA0400295C4D /* NotificationName.swift in Sources */,
 				8D94AF8B2407D546002D8D56 /* LoginViewController.swift in Sources */,
 				8D10D4752409229D00BEA473 /* CellName.swift in Sources */,
 				8D10D46E2408FD9F00BEA473 /* TasksWorker.swift in Sources */,
 				8D10D4692408FCCC00BEA473 /* TodosPage.swift in Sources */,
 				8D94AF502407A5B0002D8D56 /* BaseController.swift in Sources */,
+				8DF0983D240B792A00295C4D /* SettingsProtocols.swift in Sources */,
 				8D94AFB224080458002D8D56 /* String+Extension.swift in Sources */,
 				8DD4E9A22409552A00D749AD /* TodoItemViewController.swift in Sources */,
 				8DC395DE240845EF00FFBFAC /* SignUpViewController.swift in Sources */,
 				8D94AF9F2407F58B002D8D56 /* LoginRouter.swift in Sources */,
 				8D94AFB624080D04002D8D56 /* NetworkManager.swift in Sources */,
 				8D94AF8E2407D67D002D8D56 /* TDField.swift in Sources */,
+				8DF09846240B7C6300295C4D /* SettingsInteractor.swift in Sources */,
 				8D10D4652408F49500BEA473 /* TodoListViewController.swift in Sources */,
 				8D94AF4C2407A5B0002D8D56 /* AppDelegate.swift in Sources */,
 				8DF09831240A31B000295C4D /* TDTextView.swift in Sources */,
+				8DF09844240B7BD000295C4D /* SettingsPresenter.swift in Sources */,
 				8D94AFC824081B9C002D8D56 /* Validator.swift in Sources */,
 				8D94AF952407DAB3002D8D56 /* AuthResponse.swift in Sources */,
 				8D94AF972407E062002D8D56 /* UITextField+Extensions.swift in Sources */,
