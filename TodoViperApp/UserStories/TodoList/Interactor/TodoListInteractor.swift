@@ -28,8 +28,6 @@ class TodoListInteractor: TodoListInteractorInputProtocol {
     func fetchNextPageTodos() {
         var nextPage = 1
         guard let pagination = paginationMeta else {
-
-            print("LOAD1")
             todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
             return
         }
@@ -38,7 +36,6 @@ class TodoListInteractor: TodoListInteractorInputProtocol {
             return
         }
         nextPage = pagination.current + 1
-        print("LOAD2")
         todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
     }
     
