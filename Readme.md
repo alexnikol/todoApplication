@@ -11,7 +11,11 @@
 │   └── Application 
 └───
 ```
-## Architecture
+## Installation:
+1. Clone Project to you working directory
+2. Run "pod install" in the project directory
+
+## Architecture:
 App uses VIPER architecture pattern:
 
 ![iOS VIPER](http://alex.cybers.pro/img_viper_001.jpg)
