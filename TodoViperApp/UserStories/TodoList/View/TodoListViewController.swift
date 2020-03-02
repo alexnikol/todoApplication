@@ -81,6 +81,17 @@ final class TodoListViewController: UITableViewController, Loaderable {
 
 extension TodoListViewController: TodoListViewProtocol {
     
+    func updateNewItems(count: Int) {
+        let lastElement = (presenter?.todos.count ?? 0) - 1 - count
+        var indexPathsForInsert: [IndexPath] = []
+        for item in (lastElement + 1 ... lastElement + count) {
+            indexPathsForInsert.append(IndexPath(row: item, section: 0))
+        }
+        tableView.beginUpdates()
+        tableView.insertRows(at: indexPathsForInsert, with: .automatic)
+        tableView.endUpdates()
+    }
+
     func refreshList() {
         tableView.reloadData()
         hideLoader()
@@ -96,6 +107,25 @@ extension TodoListViewController: TodoListViewProtocol {
 
 extension TodoListViewController {
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+        let isDataLoaded = presenter?.isAllDataLoaded ?? false
+        if distanceFromBottom < height {
+            if !isDataLoaded {
+                presenter?.loadNextPage()
+                let spinner = UIActivityIndicatorView(style: .gray)
+                spinner.startAnimating()
+                spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+                self.tableView.tableFooterView = spinner
+                self.tableView.tableFooterView?.isHidden = false
+            } else {
+                self.tableView.tableFooterView = nil
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todosCount
     }

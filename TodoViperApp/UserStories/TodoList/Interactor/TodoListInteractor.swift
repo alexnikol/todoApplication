@@ -28,13 +28,17 @@ class TodoListInteractor: TodoListInteractorInputProtocol {
     func fetchNextPageTodos() {
         var nextPage = 1
         guard let pagination = paginationMeta else {
+
+            print("LOAD1")
             todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
             return
         }
-        if nextPage > pagination.count {
+        if pagination.count <= pagination.current * pagination.limit {
+            presenter?.allPagesLoaded()
             return
         }
         nextPage = pagination.current + 1
+        print("LOAD2")
         todosWorker?.fetchTodos(byPage: nextPage, withSort: currentSort)
     }
     
@@ -63,6 +67,7 @@ extension TodoListInteractor: TodosWorkerOutputProtocol {
             presenter?.fetchedTodos([], error: error)
             return
         }
+        paginationMeta = todos?.meta
         presenter?.fetchedTodos(page.tasks, error: error)
     }
     

@@ -14,6 +14,7 @@ protocol TodoListViewProtocol: class {
     
     // PRESENTER -> VIEW
     func refreshList()
+    func updateNewItems(count: Int)
     func showErrorMessage(_ message: String)
 }
 
@@ -23,6 +24,7 @@ protocol TodoListPresenterProtocol: class {
     var interactor: TodoListInteractorInputProtocol? { get set }
     var router: TodoListRouterProtocol? { get set }
     var todos: [Todo] { get }
+    var isAllDataLoaded: Bool { get set }
     
     // VIEW -> PRESENTER
     func refreshList()
@@ -51,6 +53,7 @@ protocol TodoListInteractorOutputProtocol: class {
     // INTERACTOR -> PRESENTER
     func fetchedTodos(_ todos: [Todo], error: String?)
     func deletedTodo(_ id: Int?, error: String?)
+    func allPagesLoaded()
 }
 
 protocol TodoListRouterProtocol: class {

@@ -9,17 +9,25 @@
 import UIKit
 
 class TodoListPresenter: TodoListPresenterProtocol {
-
-    var todos: [Todo] = []
+    
     weak var view: TodoListViewProtocol?
     var interactor: TodoListInteractorInputProtocol?
     var router: TodoListRouterProtocol?
+    private var inNextPageProccess = false
+    var isAllDataLoaded = false
+    var todos: [Todo] = []
     
     func loadNextPage() {
+        guard !inNextPageProccess && !isAllDataLoaded else {
+            return
+        }
+        inNextPageProccess = true
         interactor?.fetchNextPageTodos()
     }
     
     func refreshList() {
+        inNextPageProccess = false
+        isAllDataLoaded = false
         interactor?.refreshTodos()
     }
     
@@ -43,20 +51,29 @@ class TodoListPresenter: TodoListPresenterProtocol {
 
 extension TodoListPresenter: TodoListInteractorOutputProtocol {
     
+    func allPagesLoaded() {
+        isAllDataLoaded = true
+    }
+
     func fetchedTodos(_ todos: [Todo], error: String?) {
-        
+        inNextPageProccess = false
         if let error = error {
             view?.showErrorMessage(error)
         } else {
-            self.todos = todos
-            view?.refreshList()
+            if let pagination = interactor?.paginationMeta, pagination.current > 1 {
+                self.todos += todos
+                view?.updateNewItems(count: todos.count)
+            } else {
+                self.todos = todos
+                view?.refreshList()
+            }
         }
  
     }
     
     func createdTodo(_ todo: Todo?, error: String?) {
         if todo != nil {
-            interactor?.refreshTodos()
+            refreshList()
         } else {
             view?.showErrorMessage(error ?? Text.smthWentWrong.localized)
         }
@@ -64,7 +81,7 @@ extension TodoListPresenter: TodoListInteractorOutputProtocol {
     
     func updatedTodo(_ todo: Todo?, error: String?) {
         if todo != nil {
-            interactor?.refreshTodos()
+            refreshList()
         } else {
             view?.showErrorMessage(error ?? Text.smthWentWrong.localized)
         }
@@ -72,7 +89,7 @@ extension TodoListPresenter: TodoListInteractorOutputProtocol {
     
     func deletedTodo(_ id: Int?, error: String?) {
         if id != nil {
-            interactor?.refreshTodos()
+            refreshList()
         } else {
             view?.showErrorMessage(error ?? Text.smthWentWrong.localized)
         }
