@@ -26,8 +26,6 @@ final class SignUpViewController: BaseController {
         super.viewDidLoad()
         setupView()
         navigationItem.title = Text.signUp.localized
-        loginField.text = "sample@site.com"
-        passwordField.text = "0123456"
     }
         
     @objc
