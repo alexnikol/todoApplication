@@ -2,7 +2,7 @@
 //  SelectPicker.swift
 //  TodoViperApp
 //
-//  Created by Александр Николайчук on 30.01.2020.
+//  Created by Alexander Nikolaychuk on 30.01.2020.
 //  Copyright © 2020 Conduent. All rights reserved.
 //
 
