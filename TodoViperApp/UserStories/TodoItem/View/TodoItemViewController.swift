@@ -13,10 +13,13 @@ import MBProgressHUD
 final class TodoItemViewController: BaseController, UITextViewDelegate {
     
     private let contentView = UIView()
+    private var saveButton: UIBarButtonItem!
+    private var trashButton: UIBarButtonItem!
     private let alert = UILabel()
     private var textView: TDTextView!
     private var segmentView: UISegmentedControl!
     private var dateField: TDField!
+    private var inProccessNow = false
     var presenter: TodoItemPresenterProtocol?
         
     override func loadView() {
@@ -35,11 +38,14 @@ final class TodoItemViewController: BaseController, UITextViewDelegate {
     }
     
     private func setupView() {
-        let save = UIBarButtonItem(barButtonSystemItem: .save, target: self,
+        
+        saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self,
                                   action: #selector(saveTapped))
-        let delete = UIBarButtonItem(barButtonSystemItem: .trash, target: self,
+        trashButton = UIBarButtonItem(barButtonSystemItem: .trash, target: self,
                                      action: #selector(deleteTapped))
-        navigationItem.rightBarButtonItems = [save, delete]
+        trashButton.isEnabled = false
+        
+        navigationItem.rightBarButtonItems = [saveButton, trashButton]
         alert.textColor = Colors.dangerColor
         alert.numberOfLines = 0
         textView = getTextView()
@@ -84,15 +90,25 @@ final class TodoItemViewController: BaseController, UITextViewDelegate {
     
     @objc
     private func saveTapped() {
+        guard !inProccessNow else {
+            return
+        }
+        inProccessNow = true
         showLoader()
         let time = ((dateField.inputView as? UIDatePicker)?.date ?? Date()).timeIntervalSince1970
         presenter?.saveTodo(text: textView.text ?? "",
                             priority: segmentView.selectedSegmentIndex,
                             dueBy: Int(time))
+        
     }
     
     @objc
     private func deleteTapped() {
+        guard !inProccessNow else {
+            return
+        }
+        showLoader()
+        inProccessNow = true
         presenter?.deleteTodo()
     }
     
@@ -139,6 +155,7 @@ final class TodoItemViewController: BaseController, UITextViewDelegate {
 extension TodoItemViewController: TodoItemViewProtocol {
     
     func setFormData(text: String, priorityIndex: Int, dueBy: Int) {
+        trashButton.isEnabled = true
         textView.text = text
         segmentView.selectedSegmentIndex = priorityIndex
         let date = Date(timeIntervalSince1970: TimeInterval(dueBy))
@@ -151,9 +168,11 @@ extension TodoItemViewController: TodoItemViewProtocol {
         let loadingNotification = MBProgressHUD.showAdded(to: view, animated: true)
         loadingNotification.mode = MBProgressHUDMode.text
         loadingNotification.label.text = Text.success.localized
+        
     }
         
     func showErrorMessage(_ message: String) {
+        inProccessNow = false
         alert.text = message
         hideLoader()
     }
