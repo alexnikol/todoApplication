@@ -9,5 +9,5 @@
 import Foundation
 
 enum SortTypeKey: String, CaseIterable {
-    case title, priority, dueBy
+    case title, priority, dueby
 }

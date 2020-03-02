@@ -15,7 +15,7 @@ class SettingsWorker: SettingsWorkerInputProtocol {
             let sortValue = SortTypeValue(rawValue: sortValueString),
             let sortKeyString = UserDefaults.standard.string(forKey: "sortKey"),
             let sortKey = SortTypeKey(rawValue: sortKeyString) else {
-                return SortObject(key: .dueBy, value: .asc)
+                return SortObject(key: .dueby, value: .asc)
         }
         return SortObject(key: sortKey, value: sortValue)
     }

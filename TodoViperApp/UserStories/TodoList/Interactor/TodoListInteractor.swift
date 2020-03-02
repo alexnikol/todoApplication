@@ -17,7 +17,7 @@ class TodoListInteractor: TodoListInteractorInputProtocol {
     
     var currentSort: SortObject {
         return settingsWorker?.getSortSetting()
-            ?? SortObject(key: .dueBy, value: .asc)
+            ?? SortObject(key: .dueby, value: .asc)
     }
     
     func refreshTodos() {

@@ -26,7 +26,7 @@ class SortingScreenPresenter: SortingScreenPresenterProtocol {
     
     func getActiveSortType() -> (key: String, value: String) {
         let settings = interactor?.getActiveSortType()
-        let key = settings?.key ?? SortTypeKey.dueBy
+        let key = settings?.key ?? SortTypeKey.dueby
         let value = settings?.value ?? SortTypeValue.asc
         return (key: key.rawValue.capitalized,
                 value: value.rawValue.uppercased())
@@ -43,6 +43,8 @@ extension SortingScreenPresenter: SortingScreenInteractorOutputProtocol {
     func didSortChange() {
         let notificationName = Notification.Name(NotificationName.RefreshTodos.rawValue)
         NotificationCenter.default.post(name: notificationName, object: nil)
+        let sortChangedName = Notification.Name(NotificationName.SortChanged.rawValue)
+        NotificationCenter.default.post(name: sortChangedName, object: nil)
         router?.navigateBack(fromView: view as? UIViewController)
     }
 }

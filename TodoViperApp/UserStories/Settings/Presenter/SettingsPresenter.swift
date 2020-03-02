@@ -23,7 +23,7 @@ class SettingsPresenter: SettingsPresenterProtocol {
     }
     
     func getActiveSettings() -> String {
-        let result = interactor?.getActiveSettings() ?? SortObject(key: .dueBy, value: .asc)
+        let result = interactor?.getActiveSettings() ?? SortObject(key: .dueby, value: .asc)
         let keyString = result.key.rawValue.capitalized
         let valueString = result.value.rawValue.uppercased()
         return "Property - \(keyString), Order - \(valueString)"

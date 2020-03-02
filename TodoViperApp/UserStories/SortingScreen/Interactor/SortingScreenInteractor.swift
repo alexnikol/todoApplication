@@ -30,7 +30,7 @@ class SortingScreenInteractor: SortingScreenInteractorInputProtocol {
         
     func getActiveSortType() -> SortObject {
         let settings = worker?.getSortSetting()
-        return settings ?? SortObject(key: .dueBy, value: .asc)
+        return settings ?? SortObject(key: .dueby, value: .asc)
     }
     
 }

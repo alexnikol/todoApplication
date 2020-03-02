@@ -13,11 +13,17 @@ import MBProgressHUD
 final class SettingsViewController: BaseController {
     
     private let contentView = UIView()
+    private var sortSettings: UILabel!
     var presenter: SettingsPresenterProtocol?
     
     override func loadView() {
         contentView.backgroundColor = Colors.white
         view = contentView
+    }
+    
+    deinit {
+        let notificationName = Notification.Name(NotificationName.SortChanged.rawValue)
+        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
     }
     
     override func viewDidLoad() {
@@ -26,16 +32,26 @@ final class SettingsViewController: BaseController {
             overrideUserInterfaceStyle = .light
         }
         setupView()
+        let notificationName = Notification.Name(NotificationName.SortChanged.rawValue)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.updateSortInfo),
+                                               name: notificationName,
+                                               object: nil)
     }
     
-    private func setupView() {
-        navigationItem.title = Text.settingsTitle.localized
-        let sortSettings = UILabel()
+    @objc
+    private func updateSortInfo() {
         let text = presenter?.getActiveSettings() ?? ""
         sortSettings.text = """
                             \(Text.Sorting.localized):
                             \(text)
                             """
+    }
+    
+    private func setupView() {
+        navigationItem.title = Text.settingsTitle.localized
+        sortSettings = UILabel()
+        updateSortInfo()
         sortSettings.textColor = Colors.darkColor
         sortSettings.numberOfLines = 0
         let logout = UIButton(type: .system)

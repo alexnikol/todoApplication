@@ -13,7 +13,6 @@ struct NetworkManager {
     
     var globalHeaders: HTTPHeaders? {
         let token = AuthManager.shared.token()
-        print("token: \(token)")
         return [
             "Authorization": "Bearer \(token)",
             "Content-Type": "application/json"

@@ -57,7 +57,6 @@ extension TodosEndpoint: EndPointType {
                 "page": page,
                 "sort": sorting
             ]
-            print("options \(options)")
             return options
         case .createTodo(let todo):
             let data = try? encoder.encode(todo)

@@ -10,4 +10,5 @@ import Foundation
 
 enum NotificationName: String {
     case RefreshTodos
+    case SortChanged
 }
